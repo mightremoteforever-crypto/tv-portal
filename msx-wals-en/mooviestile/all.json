@@ -4,9 +4,8 @@
   "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
   "template": {
     "type": "default",
-    "layout": "0,0,2,6",
-    "area": "0,0,12,3",
-    "offset": "0,2.5,0,0",
+    "layout": "0,0,1,1",
+    "area": "0,0,12,6",
     "trigger:back": "player:stop",
     "color": "msx-glass",
     "imageFiller": "cover"
@@ -226,7 +225,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "ATODO-web",
-          "text": "Web версия приложения ATODO. Просмотр различного медиаконтента: фильмов, сериалов, аниме, а так же просмотр торрентов"
+          "text": "Web version of ATODO. Watch movies, series, anime."
         }
       },
       "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/atodo.png",
