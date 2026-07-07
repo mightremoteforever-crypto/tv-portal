@@ -3,7 +3,7 @@
   "headline": "Video",
   "template": {
     "type": "default",
-    "layout": "0,0,1,1",
+    "layout": "0,0,2,6",
     "area": "0,0,12,3",
     "offset": "0,2.5,0,0",
     "trigger:back": "player:stop",
@@ -119,24 +119,7 @@
         }
       },
       "image": "https://yt3.googleusercontent.com/ytc/AIdro_kUkL-a59qSwEq6Dc-Il979Khwahh1_URZsficN8tYV=s160-c-k-c0x00ffffff-no-rj",
-      "action": "content:https://raw.githubusercontent.com/wals09/prog/main/avtoradio/translation.json"
+      "action": "link:https://www.youtube.com/@Avtoradio80s"
     }
-  ],
-  "preload": "next",
-  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
-  "extension": "{col:msx-white}{ico:msx-white:event} {now:date:D, M d, yyyy}{tb}{ico:msx-white:access-time} {now:time:hh:mm}",
-  "underlay": {
-    "items": [
-      {
-        "id": "text",
-        "type": "space",
-        "layout": "1,0,11,3",
-        "offset": "-1,1,1,0",
-        "headline": "",
-        "text": ""
-      }
-    ]
-  },
-  "captionUnderlay": 1,
-  "logo": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logo/msy.png"
+  ]
 }

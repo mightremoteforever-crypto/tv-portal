@@ -1,27 +1,9 @@
 {
   "type": "list",
-  "background": "https://static.tildacdn.com/tild6632-3233-4236-a166-613266623434/wallhaven-kw7pd7.png",
   "headline": "IPTV",
-  "logo": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logo/msy.png",
-  "extension": "{col:msx-white}{ico:msx-white:event} {now:date:D, M d, yyyy}{tb}{ico:msx-white:access-time} {now:time:hh:mm}",
-  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
-  "preload": "next",
-  "captionUnderlay": 1,
-  "underlay": {
-    "items": [
-      {
-        "id": "text",
-        "type": "space",
-        "layout": "1,0,11,3",
-        "offset": "-1,1,1,0",
-        "headline": "",
-        "text": ""
-      }
-    ]
-  },
   "template": {
     "type": "default",
-    "layout": "0,0,1,1",
+    "layout": "0,0,2,6",
     "area": "0,0,12,3",
     "offset": "0,2.5,0,0",
     "trigger:back": "player:stop",
