@@ -1,0 +1,9 @@
+{
+  "name": "WALS English Portal",
+  "version": "2.3-en",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/yd/dictionary.json",
+  "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/yd/menu_ms.json",
+  "launcher": {
+    "image": "https://raw.githubusercontent.com/wals09/msx/main/img/wals.png"
+  }
+}

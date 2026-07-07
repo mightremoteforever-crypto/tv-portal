@@ -1,12 +1,12 @@
 {
   "headline": "⛵ Yacht Daddy",
-  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/yd/dictionary.json",
   "logo": "https://raw.githubusercontent.com/wals09/msx/main/logo/msy.png",
   "menu": [
     {
       "icon": "play-circle-fill",
       "label": "Trending Movies",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/trending.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/trending.json"
     },
     {
       "type": "separator"
@@ -14,17 +14,17 @@
     {
       "icon": "play-circle-fill",
       "label": "Streaming",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/streaming.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/streaming.json"
     },
     {
       "icon": "play-circle-fill",
       "label": "Video",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/video.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/video.json"
     },
     {
       "icon": "build",
       "label": "Tools",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/tools.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/tools.json"
     },
     {
       "type": "separator"
@@ -32,7 +32,7 @@
     {
       "icon": "menu",
       "label": "All Apps",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/all.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/all.json"
     },
     {
       "type": "separator"
@@ -40,7 +40,7 @@
     {
       "icon": "wallpaper",
       "label": "Theme",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/tema/panel_tems.json"
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/tema/panel_tems.json"
     },
     {
       "type": "separator"

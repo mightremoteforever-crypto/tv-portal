@@ -1,8 +1,8 @@
 {
   "name": "Yacht Daddy Media Player",
   "version": "4.0.0",
-  "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/menu_ms.json",
-  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
+  "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/yd/menu_ms.json",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/yd/dictionary.json",
   "launcher": {
     "icon": "directions-boat",
     "color": "msx-blue"
