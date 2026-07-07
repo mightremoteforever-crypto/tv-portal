@@ -11,7 +11,7 @@
   },
   "items": [
     {
-      "image": "https://image.tmdb.org/t/p/w342/9cjIGRQL1m4E87I65HXt6ghEFJh.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=278&title=The Shawshank Redemption&year=1994",
       "selection": {
         "important": true,
@@ -47,7 +47,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911MC0rpEBsMbs0.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=155&title=The Dark Knight&year=2008",
       "selection": {
         "important": true,
@@ -83,7 +83,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/aKuFiU82s5ISjVZllLwLE9A5YjW.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=769&title=GoodFellas&year=1990",
       "selection": {
         "important": true,
@@ -131,7 +131,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/ppd84D2i9W8jXmsyInNSihiRu5W.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=278&title=12 Angry Men&year=1957",
       "selection": {
         "important": true,
@@ -167,7 +167,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wn99aJ6PNsbQLJ82V3JWMvb3P6v.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=429&title=The Good, the Bad and the Ugly&year=1966",
       "selection": {
         "important": true,
@@ -179,7 +179,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/hek3koDUyRQkET0NFSdbE3Y5pZn.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=240&title=The Godfather Part II&year=1974",
       "selection": {
         "important": true,
@@ -191,7 +191,7 @@
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/8OKmBV5BUF8QdRs4BNmGKfxJQIG.jpg",
+      "image": "",
       "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=346&title=Seven Samurai&year=1954",
       "selection": {
         "important": true,
