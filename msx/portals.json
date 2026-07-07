@@ -1,0 +1,59 @@
+{
+    "type": "list",
+    "headline": "MSX Launchers (Russian, but content is multilingual)",
+    "template": {
+        "type": "separate",
+        "layout": "0,0,2,4",
+        "icon": "msx-white-soft:extension",
+        "color": "msx-glass"
+    },
+    "items": [
+        {
+            "title": "V4 MSXPlayer",
+            "badge": "Best",
+            "icon": "msx-white-soft:extension",
+            "description": "Biggest app store, most plugins",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:msxplayer.ru"
+        },
+        {
+            "title": "WALS Portal",
+            "badge": "Newest",
+            "icon": "msx-white-soft:extension",
+            "description": "English interface, many apps",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:wals09.github.io"
+        },
+        {
+            "title": "NoName Portal",
+            "badge": "Stable",
+            "icon": "msx-white-soft:extension",
+            "description": "Works on older TVs",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:nnmtv.fun"
+        },
+        {
+            "title": "Lampa Movies",
+            "badge": "Movies",
+            "icon": "msx-white-soft:movie",
+            "description": "Direct movie catalog",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:lampa.mx"
+        },
+        {
+            "title": "VoKino",
+            "badge": "Russian",
+            "icon": "msx-white-soft:movie",
+            "description": "Large Russian movie library",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:vokino.tv"
+        },
+        {
+            "title": "Deeplex",
+            "badge": "Russian",
+            "icon": "msx-white-soft:movie",
+            "description": "Movie + TV portal",
+            "action": "[menu:http://192.168.1.65:8080/msx/start.json]|setup:deeplex.cc"
+        },
+        {
+            "title": "Back to Main Menu",
+            "icon": "msx-white-soft:arrow-left",
+            "action": "back"
+        }
+    ]
+}

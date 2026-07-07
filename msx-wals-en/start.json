@@ -1,0 +1,9 @@
+{
+  "name": "WALS English Portal",
+  "version": "2.3-en",
+  "dictionary": "http://192.168.1.65:8080/msx-wals-en/dictionary.json",
+  "parameter": "menu:http://192.168.1.65:8080/msx-wals-en/mooviestile/menu_ms.json",
+  "launcher": {
+    "image": "http://192.168.1.65:8080/msx-wals-en/img/wals.png"
+  }
+}

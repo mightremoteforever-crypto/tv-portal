@@ -1,0 +1,61 @@
+{
+    "type": "list",
+    "headline": "Free Movies & TV",
+    "template": {
+        "type": "separate",
+        "layout": "0,0,2,6",
+        "icon": "msx-white-soft:movie",
+        "color": "msx-glass"
+    },
+    "items": [
+        {
+            "title": "Cineby",
+            "badge": "HD",
+            "icon": "msx-white-soft:movie",
+            "description": "Movies, TV shows, anime. Working on LG TV.",
+            "action": "link:https://www.cineby.sc"
+        },
+        {
+            "title": "HydraHD",
+            "badge": "4K/HDR",
+            "icon": "msx-white-soft:movie",
+            "description": "Large movie catalog with 4K.",
+            "action": "link:https://hydrahd.io"
+        },
+        {
+            "title": "LookMovie",
+            "badge": "Light",
+            "icon": "msx-white-soft:movie",
+            "description": "Lightweight site, fewer scripts.",
+            "action": "link:https://lookmovie2.to"
+        },
+        {
+            "title": "SmashyStream",
+            "badge": "Low CPU",
+            "icon": "msx-white-soft:movie",
+            "description": "Lightest page weight for older TVs.",
+            "action": "link:https://flix.smashystream.xyz"
+        },
+        {
+            "title": "Shuttle TV",
+            "badge": "HD",
+            "icon": "msx-white-soft:movie",
+            "description": "Movies and TV series.",
+            "action": "link:https://shuttletv.su"
+        },
+        {
+            "title": "UniqueStream",
+            "badge": "HD",
+            "icon": "msx-white-soft:movie",
+            "description": "Clean interface, fast loading.",
+            "action": "link:https://uniquestream.net"
+        },
+        {
+            "title": "7reels",
+            "badge": "Reels",
+            "icon": "msx-white-soft:movie",
+            "description": "Instagram reels downloader.",
+            "action": "link:https://7reels.cc"
+        }
+    ]
+}
