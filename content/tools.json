@@ -1,0 +1,38 @@
+{
+    "type": "list",
+    "headline": "Tools",
+    "template": {
+        "type": "default",
+        "layout": "0,0,1,1",
+        "area": "0,0,12,6",
+        "color": "msx-glass",
+        "imageFiller": "cover",
+        "trigger:back": "player:stop"
+    },
+    "items": [
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "Forkplayer",
+                    "text": "Smart TV browser with curated channels. English."
+                }
+            },
+            "action": "link:http://browser.appfxml.com/"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "RELAX",
+                    "text": "Nature and relaxation video channels."
+                }
+            },
+            "action": "link:https://www.youtube.com/results?search_query=relaxing+nature+4k"
+        }
+    ]
+}

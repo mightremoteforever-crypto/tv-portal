@@ -1,0 +1,110 @@
+{
+  "type": "list",
+  "headline": "Movies",
+  "template": {
+    "type": "default",
+    "layout": "0,0,1,1",
+    "area": "0,0,12,6",
+    "color": "msx-glass",
+    "imageFiller": "cover",
+    "trigger:back": "player:stop"
+  },
+  "items": [
+    {
+      "image": "",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Shawshank Redemption (1994)",
+          "text": "Two imprisoned men bond over the years, finding solace and eventual redemption."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=278&title=The+Shawshank+Redemption&year=1994"
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Godfather (1972)",
+          "text": "The aging patriarch of an organized crime dynasty transfers control to his reluctant son."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=238&title=The+Godfather&year=1972"
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Pulp Fiction (1994)",
+          "text": "The lives of two mob hitmen, a boxer, and a pair of diner bandits intertwine."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=680&title=Pulp+Fiction&year=1994"
+    },
+    {
+      "image": "",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Dark Knight (2008)",
+          "text": "Batman must accept one of the greatest psychological and physical tests."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=155&title=The+Dark+Knight&year=2008"
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Star Wars (1977)",
+          "text": "Princess Leia is captured and held hostage by the evil Imperial forces."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=11&title=Star+Wars&year=1977"
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Fight Club (1999)",
+          "text": "An insomniac and a soap maker form an underground fight club."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=550&title=Fight+Club&year=1999"
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/6yoghtyTpznpBik8EngEmJskVUO.jpg",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Se7en (1995)",
+          "text": "Two detectives hunt a serial killer who uses the seven deadly sins as motives."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=807&title=Se7en&year=1995"
+    },
+    {
+      "image": "",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "GoodFellas (1990)",
+          "text": "The story of Henry Hill and his life in the mob, covering his relationship."
+        }
+      },
+      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=769&title=GoodFellas&year=1990"
+    }
+  ]
+}

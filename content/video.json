@@ -1,0 +1,50 @@
+{
+    "type": "list",
+    "headline": "Video",
+    "template": {
+        "type": "default",
+        "layout": "0,0,1,1",
+        "area": "0,0,12,6",
+        "color": "msx-glass",
+        "imageFiller": "cover",
+        "trigger:back": "player:stop"
+    },
+    "items": [
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "YouTube",
+                    "text": "YouTube for TV. Full English catalog."
+                }
+            },
+            "action": "link:https://www.youtube.com/tv#/"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "YouTube Kids",
+                    "text": "Kid-safe YouTube videos. English."
+                }
+            },
+            "action": "link:https://www.youtube.com/tv/kids"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "TikTok",
+                    "text": "Short-form video platform. English UI."
+                }
+            },
+            "action": "link:https://tv.tiktok.com/webos"
+        }
+    ]
+}

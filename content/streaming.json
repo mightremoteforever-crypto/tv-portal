@@ -1,0 +1,86 @@
+{
+    "type": "list",
+    "headline": "Streaming",
+    "template": {
+        "type": "default",
+        "layout": "0,0,1,1",
+        "area": "0,0,12,6",
+        "color": "msx-glass",
+        "imageFiller": "cover",
+        "trigger:back": "player:stop"
+    },
+    "items": [
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "DRM-play",
+                    "text": "IPTV player for m3u/m3u8 playlists. English interface. Free."
+                }
+            },
+            "action": "link:http://ott.drm-play.com"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "OTT-PLAY",
+                    "text": "Full-featured IPTV player with EPG support. English."
+                }
+            },
+            "action": "link:http://ott-play.com/f/"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "OTT-FOSS",
+                    "text": "Free open source IPTV player. English interface."
+                }
+            },
+            "action": "link:http://ott.prog4food.eu.org/f/"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "Ottplayer",
+                    "text": "Consolidate all IPTV into one playlist. English UI."
+                }
+            },
+            "action": "link:http://widget.ottplayer.tv"
+        },
+        {
+            "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "Oneplayer",
+                    "text": "Cross-platform m3u playlist player. English."
+                }
+            },
+            "action": "link:http://webos.oneplayer.me"
+        },
+        {
+            "image": "https://www.stremio.com/website/stremio-logo.png",
+            "selection": {
+                "important": true,
+                "action": "update:content:underlay:text",
+                "data": {
+                    "headline": "Stremio",
+                    "text": "Free English media center. Install from LG Content Store. Add Torrentio addon for movies."
+                }
+            },
+            "action": "link:https://www.stremio.com/downloads"
+        }
+    ]
+}

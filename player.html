@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yacht Daddy Player</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0e1a; color: #c8d6e5; font-family: sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+#bar { background: #0d1b2a; padding: 10px 18px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #1e3a5f; flex-shrink: 0; }
+#bar h1 { font-size: 16px; color: #5dade2; }
+#bar button { background: #1e3a5f; border: none; color: #5dade2; padding: 5px 14px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+#container { flex: 1; position: relative; background: #000; }
+#container iframe { width: 100%; height: 100%; border: none; }
+#status { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: #0a0e1a; z-index: 10; }
+#status .spin { width: 40px; height: 40px; border: 3px solid #1e3a5f; border-top: 3px solid #5dade2; border-radius: 50%; animation: s 0.7s linear infinite; }
+@keyframes s { to { transform: rotate(360deg); } }
+#status p { font-size: 13px; color: #7f8c8d; }
+#status .err { color: #e74c3c; display: none; font-size: 12px; }
+#status .retry { background: #5dade2; color: #0a0e1a; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none; }
+#tabs { display: flex; gap: 3px; padding: 6px 0; flex-shrink: 0; }
+#tabs button { background: transparent; color: #5dade2; border: 1px solid #1e3a5f; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+#tabs button.on { background: #1e3a5f; border-color: #5dade2; }
+</style>
+</head>
+<body>
+<div id="bar">
+<h1>⛵ Yacht Daddy</h1>
+<span style="font-size:12px;margin-left:auto;color:#7f8c8d" id="info"></span>
+</div>
+<div id="container">
+<div id="status"><div class="spin"></div><p>Finding stream...</p><div class="err" id="err">All sources failed.</div><button class="retry" id="retry" onclick="start()">Retry</button></div>
+<iframe id="f" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+</div>
+<div id="tabs"></div>
+<script>
+const P = new URLSearchParams(location.search);
+const tmdb = P.get('tmdb') || '680';
+document.getElementById('info').textContent = P.get('title') || '';
+
+const providers = [
+    { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
+    { n: 'VidLink', u: `https://vidlink.to/${tmdb}` },
+    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` },
+    { n: '2Embed', u: `https://www.2embed.cc/embed/${tmdb}` },
+    { n: 'AutoEmbed', u: `https://autoembed.cc/embed/movie/${tmdb}` },
+];
+let cur = 0, done = false;
+
+providers.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.textContent = p.n;
+    b.onclick = () => load(i);
+    document.getElementById('tabs').appendChild(b);
+});
+
+function load(i) {
+    cur = i; done = false;
+    document.querySelectorAll('#tabs button').forEach(x => x.classList.remove('on'));
+    document.querySelectorAll('#tabs button')[i].classList.add('on');
+    document.getElementById('status').style.display = 'flex';
+    document.getElementById('err').style.display = 'none';
+    document.getElementById('retry').style.display = 'none';
+    document.getElementById('f').src = providers[i].u;
+    setTimeout(() => { if (!done) next(); }, 12000);
+}
+
+function next() { if (cur < providers.length - 1) load(cur + 1); else { document.getElementById('err').style.display = 'block'; document.getElementById('retry').style.display = 'block'; } }
+function start() { cur = -1; next(); }
+
+document.getElementById('f').onload = function() { done = true; document.getElementById('status').style.display = 'none'; };
+document.getElementById('f').onerror = function() { if (!done) next(); };
+
+load(0);
+</script>
+</body>
+</html>

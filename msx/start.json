@@ -1,11 +1,39 @@
 {
-    "name": "Test",
+    "name": "Yacht Daddy",
     "version": "1.0.0",
     "parameter": "menu:{PREFIX}{SERVER}/msx/start.json",
+    "launcher": {
+        "icon": "directions-boat",
+        "color": "msx-blue"
+    },
     "menu": [
         {
-            "label": "Big Buck Bunny",
-            "data": "{PREFIX}{SERVER}/test.json"
+            "icon": "movie",
+            "label": "Movies",
+            "data": "{PREFIX}{SERVER}/content/movies.json"
+        },
+        {
+            "icon": "live_tv",
+            "label": "Streaming",
+            "data": "{PREFIX}{SERVER}/content/streaming.json"
+        },
+        {
+            "icon": "play_arrow",
+            "label": "Video",
+            "data": "{PREFIX}{SERVER}/content/video.json"
+        },
+        {
+            "icon": "build",
+            "label": "Tools",
+            "data": "{PREFIX}{SERVER}/content/tools.json"
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "icon": "list",
+            "label": "All Apps",
+            "data": "{PREFIX}{SERVER}/content/all.json"
         },
         {
             "type": "separator"
