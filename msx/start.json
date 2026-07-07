@@ -1,5 +1,44 @@
 {
   "name": "Yacht Daddy",
   "version": "1.0.0",
-  "parameter": "menu:{PREFIX}{SERVER}/yd/menu_ms.json"
+  "parameter": "menu:{PREFIX}{SERVER}/msx/start.json",
+  "menu": [
+    {
+      "icon": "movie",
+      "label": "Trending Movies",
+      "data": "{PREFIX}{SERVER}/yd/trending.json"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "icon": "live_tv",
+      "label": "Streaming",
+      "data": "{PREFIX}{SERVER}/yd/streaming.json"
+    },
+    {
+      "icon": "play_arrow",
+      "label": "Video",
+      "data": "{PREFIX}{SERVER}/yd/video.json"
+    },
+    {
+      "icon": "build",
+      "label": "Tools",
+      "data": "{PREFIX}{SERVER}/yd/tools.json"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "icon": "list",
+      "label": "All Apps",
+      "data": "{PREFIX}{SERVER}/yd/all.json"
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "settings"
+    }
+  ]
 }
