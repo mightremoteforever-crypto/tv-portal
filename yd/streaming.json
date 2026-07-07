@@ -4,8 +4,8 @@
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
-    "area": "0,0,12,6",
     "trigger:back": "player:stop",
+    "area": "0,0,12,6",
     "color": "msx-glass",
     "imageFiller": "cover"
   },
@@ -16,8 +16,8 @@
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Stremio",
-          "text": "Free English media center. Install from LG Content Store then sign in at stremio.com/link. Add Torrentio addon for movies."
+          "headline": "Stremio (Install from LG Store)",
+          "text": "Free English media center with addons. Install from LG Content Store."
         }
       },
       "action": "link:https://stremio.com/download-service"
@@ -29,7 +29,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "DRM-play",
-          "text": "IPTV player for m3u/m3u8 playlists. English interface."
+          "text": "IPTV player — m3u/m3u8 playlists. English interface."
         }
       },
       "action": "link:http://ott.drm-play.com"
@@ -41,7 +41,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-PLAY",
-          "text": "Full-featured IPTV player with EPG support. English."
+          "text": "Full IPTV player with EPG. English."
         }
       },
       "action": "link:http://ott-play.com/f/"
@@ -53,7 +53,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-FOSS",
-          "text": "Free open source IPTV player. English."
+          "text": "Open source IPTV player. English."
         }
       },
       "action": "link:http://ott.prog4food.eu.org/f/"
@@ -65,7 +65,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Ottplayer",
-          "text": "Consolidate all IPTV into one playlist. English UI."
+          "text": "Consolidate IPTV playlists. English."
         }
       },
       "action": "link:http://widget.ottplayer.tv"
@@ -77,7 +77,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Oneplayer",
-          "text": "Cross-platform m3u playlist player. English."
+          "text": "Cross-platform m3u player. English."
         }
       },
       "action": "link:http://webos.oneplayer.me"

@@ -2,6 +2,10 @@
   "name": "Yacht Daddy",
   "version": "1.0.0",
   "parameter": "menu:{PREFIX}{SERVER}/msx/start.json",
+  "launcher": {
+    "icon": "directions-boat",
+    "color": "msx-blue"
+  },
   "menu": [
     {
       "icon": "movie",

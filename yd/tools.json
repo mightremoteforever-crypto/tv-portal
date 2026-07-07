@@ -4,8 +4,8 @@
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
-    "area": "0,0,12,6",
     "trigger:back": "player:stop",
+    "area": "0,0,12,6",
     "color": "msx-glass",
     "imageFiller": "cover"
   },
@@ -17,7 +17,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Forkplayer",
-          "text": "Smart TV web browser with curated playlists. English interface."
+          "text": "Smart TV browser with playlists. English."
         }
       },
       "action": "link:http://browser.appfxml.com/"
@@ -29,10 +29,10 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "RELAX",
-          "text": "Nature relaxation video channels."
+          "text": "Nature relaxation videos."
         }
       },
-      "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/yd/bonus/relax.json"
+      "action": "content:{GH}/yd/bonus/relax.json"
     }
   ]
 }

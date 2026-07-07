@@ -4,8 +4,8 @@
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
-    "area": "0,0,12,6",
     "trigger:back": "player:stop",
+    "area": "0,0,12,6",
     "color": "msx-glass",
     "imageFiller": "cover"
   },
@@ -17,7 +17,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "YouTube",
-          "text": "YouTube for TV. Full English catalog."
+          "text": "YouTube for TV. Full English."
         }
       },
       "action": "link:https://www.youtube.com/tv#/"
@@ -29,7 +29,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "YouTube Kids",
-          "text": "Kid-safe YouTube version. English."
+          "text": "Kid-safe videos. English."
         }
       },
       "action": "link:https://www.youtube.com/tv/kids"
@@ -41,7 +41,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "TikTok",
-          "text": "Short-form video platform. English UI."
+          "text": "Short-form videos. English UI."
         }
       },
       "action": "link:https://tv.tiktok.com/webos"
