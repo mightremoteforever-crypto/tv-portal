@@ -204,7 +204,7 @@
           "text": "App for movies, series, anime, and torrents."
         }
       },
-      "image": "https://github.com/wals09/msx/blob/main/logo/vokino.png?raw=true",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logo/vokino.png",
       "action": "link: http://web.vokino.pro/"
     },
     {
