@@ -11,12 +11,12 @@
         {
             "title": "Movies & TV Shows",
             "icon": "msx-white-soft:movie",
-            "action": "content:http://192.168.1.65:8080/msx/sites.json"
+            "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx/sites.json"
         },
         {
             "title": "Live TV (Russian Portal)",
             "icon": "msx-white-soft:live-tv",
-            "action": "content:http://192.168.1.65:8080/msx/portals.json"
+            "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx/portals.json"
         },
         {
             "title": "Stremio Web",

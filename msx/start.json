@@ -1,8 +1,8 @@
 {
   "name": "English TV Portal",
   "version": "1.0.0",
-  "parameter": "menu:http://192.168.1.65:8080/msx-wals-en/mooviestile/menu_ms.json",
-  "dictionary": "http://192.168.1.65:8080/msx-wals-en/dictionary.json",
+  "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/menu_ms.json",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
   "launcher": {
     "icon": "movie",
     "color": "msx-black-soft"
