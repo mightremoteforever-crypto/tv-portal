@@ -11,31 +11,28 @@
   },
   "items": [
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Forkplayer",
-          "text": "Smart TV web browser with auto-updating playlists. Watch movies, TV, listen to music and radio."
+          "text": "Smart TV browser with curated channels. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
       "action": "link:http://browser.appfxml.com/"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "RELAX",
-          "text": "Curated public IPTV channels.{br}Works as-is. Works while it works."
+          "text": "Nature and relaxation video channels."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
-      "action": "content: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json",
-      "properties": {
-        "trigger:back": "player:stop"
-      }
+      "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json"
     }
   ]
 }

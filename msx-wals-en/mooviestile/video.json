@@ -11,114 +11,40 @@
   },
   "items": [
     {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "RUTUBE-WEB",
-          "text": "Russian online video hosting service."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/rutube.png",
-      "action": "link:https://rutube.ru/tv-release/rutube.server-22.0.0/webos/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Yandex Video",
-          "text": "Yandex Video - search across video sites with in-page playback."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/yandex.png",
-      "action": "link:https://yandex.ru/video/tvapp/?ui=tvapp"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "TikTok {col:yellow}",
-          "text": "WebOS only.{br}Unofficial webOS app."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
-      "action": "link:https://tv.tiktok.com/webos"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "VK Video",
-          "text": "Blogger shows, movies, series, TV channels, live streams, kids cartoons, sports, music."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/vk.png",
-      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/vkvideo/vk_template.json"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "SMOTRIM-WEB",
-          "text": "Russian state multimedia platform by VGTRK media holding."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/smotrim.png",
-      "action": "link:https://tv.smotrim.ru"
-    },
-    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "YouTUBE",
-          "text": "Online video hosting and viewing service."
+          "text": "YouTube for TV. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "action": "link:https://www.youtube.com/tv#/"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "YOUTUBE KIDS",
-          "text": "Separate YouTube version designed for children."
+          "headline": "YouTube Kids",
+          "text": "YouTube for children. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "action": "link:https://www.youtube.com/tv/kids"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
       "selection": {
-        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Songs of Our Time",
-          "text": "YouTube channel compilations."
+          "headline": "TikTok",
+          "text": "TikTok for webOS. English."
         }
       },
-      "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
-      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/pesni_nashego_leta/pesni_nashego_leta.json"
-    },
-    {
-      "selection": {
-        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "80s Disco",
-          "text": "Internet streams and TV versions of 80s Disco from Avtoradio @Disco80s YouTube."
-        }
-      },
-      "image": "https://yt3.googleusercontent.com/ytc/AIdro_kUkL-a59qSwEq6Dc-Il979Khwahh1_URZsficN8tYV=s160-c-k-c0x00ffffff-no-rj",
-      "action": "link:https://www.youtube.com/@Avtoradio80s"
+      "action": "link:https://tv.tiktok.com/webos"
     }
   ]
 }

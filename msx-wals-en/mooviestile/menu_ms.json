@@ -1,20 +1,23 @@
 {
   "headline": "⛵ Yacht Daddy",
   "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
-  "logo": "https://raw.githubusercontent.com/wals09/msx/main/logo/msy.png",
+  "logo": "https://raw.githubusercontent.com/wals09/msx/main/logon/../logo/msy.png",
   "menu": [
     {
-      "icon": "directions-boat",
-      "label": "Movies",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/movies.json"
+      "icon": "play-circle-fill",
+      "label": "Trending Movies",
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/trending.json"
     },
     {
-      "icon": "anchor",
-      "label": "IPTV",
+      "type": "separator"
+    },
+    {
+      "icon": "play-circle-fill",
+      "label": "Streaming",
       "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/iptv.json"
     },
     {
-      "icon": "waves",
+      "icon": "play-circle-fill",
       "label": "Video",
       "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/video.json"
     },

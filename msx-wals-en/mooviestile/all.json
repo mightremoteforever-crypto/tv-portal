@@ -1,7 +1,6 @@
 {
   "type": "list",
   "headline": "All Apps",
-  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
@@ -12,469 +11,136 @@
   },
   "items": [
     {
-      "focus": true,
+      "image": "https://www.stremio.com/website/stremio-logo.png",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Stremio",
+          "text": "English media center with movies, TV shows, and addon support. Free + optional premium."
+        }
+      },
+      "action": "link:https://tv.strem.io"
+    },
+    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "DRM-play",
-          "text": "IPTV player for m3u, m3u8, stalker-portal, and media libraries. Test playlist included."
+          "text": "IPTV player for m3u, m3u8, stalker-portal. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "action": "link:http://ott.drm-play.com"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-FOSS",
-          "text": "IPTV player supporting m3u and m3u8 playlists and media libraries."
+          "text": "Open source IPTV player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "action": "link:http://ott.prog4food.eu.org/f/"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-PLAY",
-          "text": "IPTV player. View your playlists, stalker portals, media libraries. Save and transfer settings."
+          "text": "Full-featured IPTV player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "action": "link:http://ott-play.com/f/"
     },
     {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "ICVA",
-          "text": "IPTV player by LAMPA developers. View your own playlists."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/icva.png",
-      "action": "link:http://icva.mx/"
-    },
-    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Ottplayer",
-          "text": "Service to merge your IPTV into one playlist, organize channels, and get EPG."
+          "text": "Consolidate IPTV into one playlist. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "action": "link:http://widget.ottplayer.tv"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Oneplayer",
-          "text": "Cross-platform player for m3u playlists. Audio, video, radio, live streams."
+          "text": "Cross-platform m3u player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "action": "link:http://webos.oneplayer.me"
     },
     {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "LAMPA",
-          "text": "Catalog app. Transforms into an online cinema with torrent and IPTV support."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa.png",
-      "action": "link:http://lampa.mx"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "LAMPA land",
-          "text": "Lampa mod. Pre-configured for online viewing and IPTV."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/lampa_land/icon.png",
-      "action": "link:http://lampa.land"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Lampset (Lampa Bundle)",
-          "text": "LAMPA with alternative addresses. Use cub.red to save/transfer settings so you don't have to reconfigure."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampset.png",
-      "action": "panel: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/lampset/template.json",
-      "properties": {
-        "trigger:back": "player:stop"
-      }
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Lampa UnCensored",
-          "text": "Lampa mod with plugin store and extras."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/bylampa.png",
-      "action": "link:http://bylampa.online"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Akter Black",
-          "text": "Lampa mod. In development - some features unavailable. Preview only."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/akter_black.png",
-      "action": "link:http://abvidaa.ru/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Prisma TV",
-          "text": "Lampa mod. In development - some features unavailable. Preview only."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/prisma.png",
-      "action": "panel: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/prisma/template.json"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "LAMPA NoName",
-          "text": "Pre-configured for online viewing. Thanks to NoName."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampaNN.png",
-      "action": "link: http://lam.nnmtv.pw/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Lampa lite {col:yellow}|{col} NoName",
-          "text": "Lampa Lite ready-to-use. Thanks to NoName."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa_lite.png",
-      "action": "link:http://lite.nnmtv.pw/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Lampa by Skaz",
-          "text": "Lampa with pre-installed online plugins. Add more from the store."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa.png",
-      "action": "link:http://lampa.byskaz.ru"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "VoKINO",
-          "text": "App for movies, series, anime, and torrents."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logo/vokino.png",
-      "action": "link: http://web.vokino.pro/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "ATODO",
-          "text": "App for movies, series, anime, and torrents."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/atodo.png",
-      "action": "menu:request:interaction:menu@http://atodo.fun/fun.html"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "ATODO-web",
-          "text": "Web version of ATODO. Watch movies, series, anime."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/atodo.png",
-      "action": "link:http://msx.atodo.fun/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "ZONA msx",
-          "text": "MSX version of ZONA. Movies, series, anime."
-        }
-      },
-      "image": "https://msx.zona.ms/assets/logo_512_512.png",
-      "action": "link:https://msx.zona.ms"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "MOVIELAB",
-          "text": "MOVIELAB portal on Media Station X. Online video content."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/movielab.png",
-      "action": "menu:https://movielab.fun/msx/menu.json"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Forkplayer",
-          "text": "Smart TV web browser with auto-updating playlists. Watch movies, TV, listen to music and radio."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
-      "action": "link:http://browser.appfxml.com/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "DEEPLEX",
-          "text": "App for movies, series, anime, and torrents."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/deeplex.png",
-      "action": "link:http://smart.deeplex.cc/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "IMPIRE BOOM",
-          "text": "EmpireBOOM - organized links to media: movies, series, cartoons, IPTV, radio, etc."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/impire_boom.png",
-      "action": "link:http://web.imboom.ru/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "KINOBOOM",
-          "text": "Video from multiple sources. Search movies, series, cartoons, anime, TV shows. Quality select. KBC channels. VIP for 3 devices."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/kinoboom.png",
-      "action": "execute:info:extended:http://kb-team.club/msx/enter.php"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "GetsTV",
-          "text": "Movies and cartoons. Largest database, updated daily, new releases after cinema premiere."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/getstv.png",
-      "action": "panel:http://lg.getstv.ru/msx/msx.json"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Tutkino",
-          "text": "Online cinema (vPlay mod). Access via donation."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tutkino.jpg",
-      "action": "link:http://web.tutkino.fun/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Tutkino Lite",
-          "text": "Online cinema (Lampa Lite mod). Access via donation."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tutkinolite.jpg",
-      "action": "link:http://lite.tutkino.fun/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "RUTUBE-WEB",
-          "text": "Russian online video hosting service."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/rutube.png",
-      "action": "link:https://rutube.ru/tv-release/rutube.server-22.0.0/webos/"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Yandex Video",
-          "text": "Yandex Video - search across video sites with in-page playback."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/yandex.png",
-      "action": "link:https://yandex.ru/video/tvapp/?ui=tvapp"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "TikTok {col:yellow}",
-          "text": "WebOS only.{br}Unofficial webOS app."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
-      "action": "link:https://tv.tiktok.com/webos"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "VK Video",
-          "text": "Blogger shows, movies, series, TV channels, live streams, kids cartoons, sports, music."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/vk.png",
-      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/vkvideo/vk_template.json"
-    },
-    {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "SMOTRIM-WEB",
-          "text": "Russian state multimedia platform by VGTRK media holding."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/smotrim.png",
-      "action": "link:https://tv.smotrim.ru"
-    },
-    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "YouTUBE",
-          "text": "Online video hosting and viewing service."
+          "text": "YouTube for TV. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "action": "link:https://www.youtube.com/tv#/"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "YOUTUBE KIDS",
-          "text": "Separate YouTube version designed for children."
+          "headline": "YouTube Kids",
+          "text": "YouTube for children. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "action": "link:https://www.youtube.com/tv/kids"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Cartoons",
-          "text": "Watch cartoons online. Soviet-era classics and more. Best cartoons from your childhood!"
+          "headline": "TikTok",
+          "text": "TikTok for webOS. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/multiki.png",
-      "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/welcome.json"
+      "action": "link:https://tv.tiktok.com/webos"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Forkplayer",
+          "text": "Smart TV browser with curated channels. English."
+        }
+      },
+      "action": "link:http://browser.appfxml.com/"
+    },
+    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "RELAX",
-          "text": "Curated public IPTV channels.{br}Works as-is. Works while it works."
+          "text": "Nature and relaxation video channels."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
-      "action": "content: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json",
-      "properties": {
-        "trigger:back": "player:stop"
-      }
-    },
-    {
-      "selection": {
-        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Songs of Our Time",
-          "text": "YouTube channel compilations."
-        }
-      },
-      "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
-      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/pesni_nashego_leta/pesni_nashego_leta.json"
-    },
-    {
-      "selection": {
-        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "80s Disco",
-          "text": "Internet streams and TV versions of 80s Disco from Avtoradio @Disco80s YouTube."
-        }
-      },
-      "image": "https://yt3.googleusercontent.com/ytc/AIdro_kUkL-a59qSwEq6Dc-Il979Khwahh1_URZsficN8tYV=s160-c-k-c0x00ffffff-no-rj",
-      "action": "link:https://www.youtube.com/@Avtoradio80s"
+      "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json"
     }
   ]
 }

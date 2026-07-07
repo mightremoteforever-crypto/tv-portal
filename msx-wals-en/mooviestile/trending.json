@@ -1,0 +1,254 @@
+{
+  "type": "list",
+  "headline": "Trending",
+  "template": {
+    "type": "default",
+    "layout": "0,0,1,1",
+    "area": "0,0,12,6",
+    "trigger:back": "player:stop",
+    "color": "msx-glass",
+    "imageFiller": "cover"
+  },
+  "items": [
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Dune%3A%20Part%20Three%202026%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Dune: Part Three (2026)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=The%20Batman%20Part%20II%202027%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Batman Part II (2027)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Avatar%3A%20Fire%20and%20Ash%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Avatar: Fire and Ash (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Avengers%3A%20Secret%20Wars%202027%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Avengers: Secret Wars (2027)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=The%20Lord%20of%20the%20Rings%3A%20The%20War%20of%20the%20Rohirrim%202024%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Lord of the Rings: The War of the Rohirrim (2024)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Spider-Man%3A%20Beyond%20the%20Spider-Verse%202027%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Spider-Man: Beyond the Spider-Verse (2027)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Mission%3A%20Impossible%208%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Mission: Impossible 8 (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Superman%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Superman (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Wicked%3A%20Part%20Two%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Wicked: Part Two (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Zootopia%202%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Zootopia 2 (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=The%20Fantastic%20Four%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Fantastic Four (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Blade%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Blade (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=How%20to%20Train%20Your%20Dragon%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "How to Train Your Dragon (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Tron%3A%20Ares%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Tron: Ares (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Jurassic%20World%20Rebirth%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Jurassic World Rebirth (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Thunderbolts%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Thunderbolts (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=M3GAN%202.0%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "M3GAN 2.0 (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=The%20Running%20Man%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "The Running Man (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Mickey%2017%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Mickey 17 (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    },
+    {
+      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "action": "link:https://www.youtube.com/results?search_query=Predator%3A%20Badlands%202025%20trailer",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Predator: Badlands (2025)",
+          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+        }
+      }
+    }
+  ]
+}

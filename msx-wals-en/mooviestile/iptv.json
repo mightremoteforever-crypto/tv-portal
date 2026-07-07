@@ -1,6 +1,6 @@
 {
   "type": "list",
-  "headline": "IPTV",
+  "headline": "Streaming",
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
@@ -11,76 +11,75 @@
   },
   "items": [
     {
-      "focus": true,
+      "image": "https://www.stremio.com/website/stremio-logo.png",
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Stremio",
+          "text": "English media center with movies, TV shows, and addon support. Free + optional premium."
+        }
+      },
+      "action": "link:https://tv.strem.io"
+    },
+    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "DRM-play",
-          "text": "IPTV player for m3u, m3u8, stalker-portal, and media libraries. Test playlist included."
+          "text": "IPTV player for m3u, m3u8, stalker-portal. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "action": "link:http://ott.drm-play.com"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-FOSS",
-          "text": "IPTV player supporting m3u and m3u8 playlists and media libraries."
+          "text": "Open source IPTV player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "action": "link:http://ott.prog4food.eu.org/f/"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "OTT-PLAY",
-          "text": "IPTV player. View your playlists, stalker portals, media libraries. Save and transfer settings."
+          "text": "Full-featured IPTV player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "action": "link:http://ott-play.com/f/"
     },
     {
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "ICVA",
-          "text": "IPTV player by LAMPA developers. View your own playlists."
-        }
-      },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/icva.png",
-      "action": "link:http://icva.mx/"
-    },
-    {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Ottplayer",
-          "text": "Service to merge your IPTV into one playlist, organize channels, and get EPG."
+          "text": "Consolidate IPTV into one playlist. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "action": "link:http://widget.ottplayer.tv"
     },
     {
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Oneplayer",
-          "text": "Cross-platform player for m3u playlists. Audio, video, radio, live streams."
+          "text": "Cross-platform m3u player. English."
         }
       },
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "action": "link:http://webos.oneplayer.me"
     }
   ]
