@@ -1,0 +1,59 @@
+{
+  "type": "list",
+  "headline": "Tools",
+  "template": {
+    "type": "default",
+    "layout": "0,0,1,1",
+    "area": "0,0,12,3",
+    "offset": "0,2.5,0,0",
+    "trigger:back": "player:stop",
+    "color": "msx-glass",
+    "imageFiller": "cover"
+  },
+  "items": [
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Forkplayer",
+          "text": "Smart TV web browser with auto-updating playlists. Watch movies, TV, listen to music and radio."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/fork_com.png",
+      "action": "link:http://browser.appfxml.com/"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "RELAX",
+          "text": "Curated public IPTV channels.{br}Works as-is. Works while it works."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/relax.png",
+      "action": "content: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json",
+      "properties": {
+        "trigger:back": "player:stop"
+      }
+    }
+  ],
+  "preload": "next",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
+  "extension": "{col:msx-white}{ico:msx-white:event} {now:date:D, M d, yyyy}{tb}{ico:msx-white:access-time} {now:time:hh:mm}",
+  "underlay": {
+    "items": [
+      {
+        "id": "text",
+        "type": "space",
+        "layout": "1,0,11,3",
+        "offset": "-1,1,1,0",
+        "headline": "",
+        "text": ""
+      }
+    ]
+  },
+  "captionUnderlay": 1,
+  "logo": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logo/msy.png"
+}

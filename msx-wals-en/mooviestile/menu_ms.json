@@ -1,9 +1,29 @@
 {
   "extension": "{col:msx-white}{ico:msx-white:event} {now:date:D, M d, yyyy}{tb}{ico:msx-white:access-time} {now:time:hh:mm}",
   "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
-  "logo": "https://wals09.github.io/msx/logo/mss.png",
+  "logo": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logo/msy.png",
   "headline": "",
   "menu": [
+    {
+      "icon": "movie",
+      "label": "Movies",
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/movies.json"
+    },
+    {
+      "icon": "live-tv",
+      "label": "IPTV",
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/iptv.json"
+    },
+    {
+      "icon": "play-circle-fill",
+      "label": "Video",
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/video.json"
+    },
+    {
+      "icon": "build",
+      "label": "Tools",
+      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/tools.json"
+    },
     {
       "type": "separator"
     },
@@ -11,34 +31,6 @@
       "icon": "menu",
       "label": "All Apps",
       "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/all.json"
-    },
-    {
-      "icon": "live-tv",
-      "label": "IPTV Apps",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/iptv.json"
-    },
-    {
-      "icon": "movie",
-      "label": "Free Movies",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/free_kino.json"
-    },
-    {
-      "icon": "movie-filter",
-      "label": "All Movies",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/full_kino.json"
-    },
-    {
-      "icon": "devices-other",
-      "label": "Other Platforms",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/social.json"
-    },
-    {
-      "type": "separator"
-    },
-    {
-      "icon": "dvr",
-      "label": "Alternative Start Params",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/store.json"
     },
     {
       "type": "separator"

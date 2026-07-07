@@ -1,0 +1,142 @@
+{
+  "type": "list",
+  "headline": "Video",
+  "template": {
+    "type": "default",
+    "layout": "0,0,1,1",
+    "area": "0,0,12,3",
+    "offset": "0,2.5,0,0",
+    "trigger:back": "player:stop",
+    "color": "msx-glass",
+    "imageFiller": "cover"
+  },
+  "items": [
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "RUTUBE-WEB",
+          "text": "Russian online video hosting service."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/rutube.png",
+      "action": "link:https://rutube.ru/tv-release/rutube.server-22.0.0/webos/"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Yandex Video",
+          "text": "Yandex Video - search across video sites with in-page playback."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/yandex.png",
+      "action": "link:https://yandex.ru/video/tvapp/?ui=tvapp"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "TikTok {col:yellow}",
+          "text": "WebOS only.{br}Unofficial webOS app."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/tiktok.png",
+      "action": "link:https://tv.tiktok.com/webos"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "VK Video",
+          "text": "Blogger shows, movies, series, TV channels, live streams, kids cartoons, sports, music."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/vk.png",
+      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/vkvideo/vk_template.json"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "SMOTRIM-WEB",
+          "text": "Russian state multimedia platform by VGTRK media holding."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/smotrim.png",
+      "action": "link:https://tv.smotrim.ru"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "YouTUBE",
+          "text": "Online video hosting and viewing service."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/youtube.png",
+      "action": "link:https://www.youtube.com/tv#/"
+    },
+    {
+      "selection": {
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "YOUTUBE KIDS",
+          "text": "Separate YouTube version designed for children."
+        }
+      },
+      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ytkids.png",
+      "action": "link:https://www.youtube.com/tv/kids"
+    },
+    {
+      "selection": {
+        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "Songs of Our Time",
+          "text": "YouTube channel compilations."
+        }
+      },
+      "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
+      "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/pesni_nashego_leta/pesni_nashego_leta.json"
+    },
+    {
+      "selection": {
+        "image": "https://cdn.dribbble.com/users/3547568/screenshots/14395014/music_jpeg_4x.jpg",
+        "important": true,
+        "action": "update:content:underlay:text",
+        "data": {
+          "headline": "80s Disco",
+          "text": "Internet streams and TV versions of 80s Disco from Avtoradio @Disco80s YouTube."
+        }
+      },
+      "image": "https://yt3.googleusercontent.com/ytc/AIdro_kUkL-a59qSwEq6Dc-Il979Khwahh1_URZsficN8tYV=s160-c-k-c0x00ffffff-no-rj",
+      "action": "content:https://raw.githubusercontent.com/wals09/prog/main/avtoradio/translation.json"
+    }
+  ],
+  "preload": "next",
+  "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
+  "extension": "{col:msx-white}{ico:msx-white:event} {now:date:D, M d, yyyy}{tb}{ico:msx-white:access-time} {now:time:hh:mm}",
+  "underlay": {
+    "items": [
+      {
+        "id": "text",
+        "type": "space",
+        "layout": "1,0,11,3",
+        "offset": "-1,1,1,0",
+        "headline": "",
+        "text": ""
+      }
+    ]
+  },
+  "captionUnderlay": 1,
+  "logo": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logo/msy.png"
+}

@@ -1,5 +1,5 @@
 {
-  "name": "English",
+  "name": "Yacht Daddy Media Player",
   "author": "Translated from DevelopGin by Kilo",
   "version": "1.0.0",
   "language": "en",
@@ -12,7 +12,7 @@
     "format:long_time": "h:mm:ss/ampm",
     "format:separator": ", ",
     "format:time": "h:mm/ampm",
-    "label:about": "About",
+    "label:about": "About Yacht Daddy",
     "label:animations": "Animations",
     "label:application": "Application",
     "label:apply": "Apply",
