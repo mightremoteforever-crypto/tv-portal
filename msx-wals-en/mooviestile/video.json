@@ -16,8 +16,8 @@
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "YouTUBE",
-          "text": "YouTube for TV. English."
+          "headline": "YouTube",
+          "text": "YouTube for TV. Full English catalog."
         }
       },
       "action": "link:https://www.youtube.com/tv#/"
@@ -29,7 +29,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "YouTube Kids",
-          "text": "YouTube for children. English."
+          "text": "Kid-safe YouTube version. English."
         }
       },
       "action": "link:https://www.youtube.com/tv/kids"
@@ -41,7 +41,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "TikTok",
-          "text": "TikTok for webOS. English."
+          "text": "Short-form video platform. English UI."
         }
       },
       "action": "link:https://tv.tiktok.com/webos"

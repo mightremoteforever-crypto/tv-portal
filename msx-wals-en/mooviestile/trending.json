@@ -1,6 +1,6 @@
 {
   "type": "list",
-  "headline": "Trending",
+  "headline": "Trending Movies",
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
@@ -11,242 +11,194 @@
   },
   "items": [
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Dune%3A%20Part%20Three%202026%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/9cjIGRQL1m4E87I65HXt6ghEFJh.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/278",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Dune: Part Three (2026)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Shawshank Redemption (1994)",
+          "text": "★ 8.7 | Two imprisoned men bond over a number of years."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=The%20Batman%20Part%20II%202027%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/238",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "The Batman Part II (2027)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Godfather (1972)",
+          "text": "★ 8.7 | The aging patriarch of an organized crime dynasty."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Avatar%3A%20Fire%20and%20Ash%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/680",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Avatar: Fire and Ash (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Pulp Fiction (1994)",
+          "text": "★ 8.5 | The lives of two mob hitmen, a boxer, a gangster."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Avengers%3A%20Secret%20Wars%202027%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/qJ2tW6WMUDux911MC0rpEBsMbs0.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/155",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Avengers: Secret Wars (2027)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Dark Knight (2008)",
+          "text": "★ 8.5 | When the menace known as the Joker wreaks havoc."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=The%20Lord%20of%20the%20Rings%3A%20The%20War%20of%20the%20Rohirrim%202024%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/11",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "The Lord of the Rings: The War of the Rohirrim (2024)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Star Wars (1977)",
+          "text": "★ 8.2 | Princess Leia is captured by the Imperial Forces."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Spider-Man%3A%20Beyond%20the%20Spider-Verse%202027%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/velWPhVMQeQKcxggNEU8YmIo52R.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/497",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Spider-Man: Beyond the Spider-Verse (2027)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Green Mile (1999)",
+          "text": "★ 8.5 | A tale set on death row where gentle giant John Coffey."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Mission%3A%20Impossible%208%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/aKuFiU82s5ISjVZllLwLE9A5YjW.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/769",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Mission: Impossible 8 (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "GoodFellas (1990)",
+          "text": "★ 8.5 | The story of Henry Hill and his life in the mob."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Superman%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/6yoghtyTpznpBik8EngEmJskVUO.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/807",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Superman (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Se7en (1995)",
+          "text": "★ 8.3 | Two detectives hunt a serial killer who uses the seven deadly sins."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Wicked%3A%20Part%20Two%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/550",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Wicked: Part Two (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Fight Club (1999)",
+          "text": "★ 8.4 | An insomniac office worker and a devil-may-care soap maker."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Zootopia%202%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/7fn624j5lj3xTme2SgiLCeuedmO.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/244786",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Zootopia 2 (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Whiplash (2014)",
+          "text": "★ 8.4 | A promising young drummer enrolls at a music conservatory."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=The%20Fantastic%20Four%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/ppd84D2i9W8jXmsyInNSihiRu5W.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/278",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "The Fantastic Four (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "12 Angry Men (1957)",
+          "text": "★ 8.5 | A jury holdout attempts to prevent a miscarriage of justice."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Blade%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/122",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Blade (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Lord of the Rings: The Return of the King (2003)",
+          "text": "★ 8.5 | Gandalf and Aragorn lead the World of Men against Sauron."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=How%20to%20Train%20Your%20Dragon%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/424",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "How to Train Your Dragon (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Schindler's List (1993)",
+          "text": "★ 8.6 | Businessman Oskar Schindler saves Jewish lives."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Tron%3A%20Ares%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/wn99aJ6PNsbQLJ82V3JWMvb3P6v.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/429",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Tron: Ares (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Good, the Bad and the Ugly (1966)",
+          "text": "★ 8.5 | A bounty hunting scam joins two men."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Jurassic%20World%20Rebirth%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/hek3koDUyRQkET0NFSdbE3Y5pZn.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/240",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Jurassic World Rebirth (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "The Godfather Part II (1974)",
+          "text": "★ 8.6 | The early life of Vito Corleone."
         }
       }
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Thunderbolts%202025%20trailer",
+      "image": "https://image.tmdb.org/t/p/w342/8OKmBV5BUF8QdRs4BNmGKfxJQIG.jpg",
+      "action": "link:https://vidsrc.fyi/embed/movie/346",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
-          "headline": "Thunderbolts (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
-        }
-      }
-    },
-    {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=M3GAN%202.0%202025%20trailer",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "M3GAN 2.0 (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
-        }
-      }
-    },
-    {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=The%20Running%20Man%202025%20trailer",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "The Running Man (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
-        }
-      }
-    },
-    {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Mickey%2017%202025%20trailer",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Mickey 17 (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
-        }
-      }
-    },
-    {
-      "image": "https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      "action": "link:https://www.youtube.com/results?search_query=Predator%3A%20Badlands%202025%20trailer",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Predator: Badlands (2025)",
-          "text": "★ 7.5 | Watch the trailer on YouTube. To watch the full movie, install Stremio from LG Content Store."
+          "headline": "Seven Samurai (1954)",
+          "text": "★ 8.5 | A town recruits seven samurai to defend itself."
         }
       }
     }

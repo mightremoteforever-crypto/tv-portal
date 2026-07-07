@@ -1,6 +1,6 @@
 {
   "type": "list",
-  "headline": "All Apps",
+  "headline": "Streaming",
   "template": {
     "type": "default",
     "layout": "0,0,1,1",
@@ -81,66 +81,6 @@
         }
       },
       "action": "link:http://webos.oneplayer.me"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "YouTube",
-          "text": "YouTube for TV. Full English catalog."
-        }
-      },
-      "action": "link:https://www.youtube.com/tv#/"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "YouTube Kids",
-          "text": "Kid-safe YouTube version. English."
-        }
-      },
-      "action": "link:https://www.youtube.com/tv/kids"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "TikTok",
-          "text": "Short-form video platform. English UI."
-        }
-      },
-      "action": "link:https://tv.tiktok.com/webos"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "Forkplayer",
-          "text": "Smart TV web browser with curated playlists. English interface."
-        }
-      },
-      "action": "link:http://browser.appfxml.com/"
-    },
-    {
-      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
-      "selection": {
-        "important": true,
-        "action": "update:content:underlay:text",
-        "data": {
-          "headline": "RELAX",
-          "text": "Nature relaxation video channels."
-        }
-      },
-      "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json"
     }
   ]
 }

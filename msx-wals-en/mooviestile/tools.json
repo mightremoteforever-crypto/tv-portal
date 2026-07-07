@@ -17,7 +17,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Forkplayer",
-          "text": "Smart TV browser with curated channels. English."
+          "text": "Smart TV web browser with curated playlists. English interface."
         }
       },
       "action": "link:http://browser.appfxml.com/"
@@ -29,7 +29,7 @@
         "action": "update:content:underlay:text",
         "data": {
           "headline": "RELAX",
-          "text": "Nature and relaxation video channels."
+          "text": "Nature relaxation video channels."
         }
       },
       "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json"
