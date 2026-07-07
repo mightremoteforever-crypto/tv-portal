@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yacht Daddy Player</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0e1a; color: #c8d6e5; font-family: -apple-system, 'Segoe UI', sans-serif; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+  
+  #header { background: linear-gradient(135deg, #0d1b2a 0%, #1b2838 100%); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; border-bottom: 1px solid #1e3a5f; }
+  #header h1 { font-size: 18px; font-weight: 600; color: #5dade2; }
+  #header .back-btn { background: #1e3a5f; border: none; color: #5dade2; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+  #header .back-btn:hover { background: #2e5a8f; }
+  #header .status { margin-left: auto; font-size: 12px; color: #7f8c8d; }
+  
+  #player-container { flex: 1; position: relative; background: #000; overflow: hidden; }
+  #player-container iframe { width: 100%; height: 100%; border: none; }
+  
+  #fallback-bar { display: none; padding: 12px 24px; background: #1a1a2e; gap: 8px; flex-wrap: wrap; flex-shrink: 0; }
+  #fallback-bar.visible { display: flex; }
+  #fallback-bar button { background: #1e3a5f; color: #c8d6e5; border: 1px solid #2e5a8f; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; transition: 0.2s; }
+  #fallback-bar button:hover { background: #2e5a8f; }
+  #fallback-bar button.active { background: #5dade2; color: #0a0e1a; font-weight: 600; border-color: #5dade2; }
+  
+  #loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; background: #0a0e1a; z-index: 10; }
+  #loading .spinner { width: 48px; height: 48px; border: 4px solid #1e3a5f; border-top-color: #5dade2; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p { font-size: 14px; color: #7f8c8d; }
+  #loading .error { color: #e74c3c; display: none; margin-top: 8px; font-size: 13px; }
+  #loading .error.visible { display: block; }
+  #loading .retry-btn { background: #5dade2; color: #0a0e1a; border: none; padding: 10px 24px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; display: none; }
+  #loading .retry-btn.visible { display: block; }
+
+  #movie-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 60px 24px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.85)); z-index: 5; pointer-events: none; }
+  #movie-info h2 { font-size: 16px; font-weight: 600; color: #fff; }
+  #movie-info p { font-size: 12px; color: #aab; margin-top: 4px; max-width: 60%; }
+
+  #provider-tabs { display: flex; gap: 4px; padding: 6px 0; }
+  #provider-tabs button { background: transparent; color: #5dade2; border: 1px solid #1e3a5f; padding: 3px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+  #provider-tabs button.active { background: #1e3a5f; border-color: #5dade2; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+  <h1>⛵ Yacht Daddy</h1>
+  <span class="status" id="statusText">Loading player...</span>
+</div>
+
+<div id="player-container">
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Finding stream...</p>
+    <div class="error" id="errorMsg">All sources failed. Try another movie.</div>
+    <button class="retry-btn" id="retryBtn" onclick="retry()">Retry</button>
+  </div>
+  <iframe id="playerFrame" allowfullscreen allow="autoplay; encrypted-media; picture-in-picture" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+  <div id="movie-info">
+    <h2 id="movieTitle"></h2>
+    <p id="movieDesc"></p>
+  </div>
+</div>
+
+<div id="fallback-bar" class="visible">
+  <div id="provider-tabs"></div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const tmdbId = params.get('tmdb') || params.get('id') || '680';
+const movieTitle = params.get('title') || 'Movie';
+const movieYear = params.get('year') || '';
+
+document.getElementById('movieTitle').textContent = movieTitle + (movieYear ? ' (' + movieYear + ')' : '');
+
+const PROVIDERS = [
+  { name: 'VidSrc', url: `https://vidsrc.fyi/embed/movie/${tmdbId}` },
+  { name: 'VidLink', url: `https://vidlink.to/${tmdbId}` },
+  { name: 'MultiEmbed', url: `https://multiembed.mov/?video_id=${tmdbId}&tmdb=1` },
+  { name: '2Embed', url: `https://www.2embed.cc/embed/${tmdbId}` },
+  { name: 'AutoEmbed', url: `https://autoembed.cc/embed/movie/${tmdbId}` },
+  { name: 'SuperEmbed', url: `https://multiembed.mov/directstream/?video_id=${tmdbId}&tmdb=1` },
+];
+
+let currentProvider = 0;
+let loaded = false;
+
+function buildTabs() {
+  const container = document.getElementById('provider-tabs');
+  PROVIDERS.forEach((p, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = p.name;
+    btn.onclick = () => switchProvider(i);
+    if (i === 0) btn.className = 'active';
+    container.appendChild(btn);
+  });
+}
+
+function switchProvider(index) {
+  if (index === currentProvider && loaded) return;
+  currentProvider = index;
+  loaded = false;
+  
+  document.querySelectorAll('#provider-tabs button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('#provider-tabs button')[index].classList.add('active');
+  
+  document.getElementById('errorMsg').classList.remove('visible');
+  document.getElementById('retryBtn').classList.remove('visible');
+  document.getElementById('loading').style.display = 'flex';
+  document.getElementById('statusText').textContent = `Loading ${PROVIDERS[index].name}...`;
+  
+  const iframe = document.getElementById('playerFrame');
+  iframe.src = PROVIDERS[index].url;
+  
+  // Timeout fallback
+  setTimeout(() => {
+    if (!loaded) {
+      tryNext();
+    }
+  }, 12000);
+}
+
+function tryNext() {
+  if (currentProvider < PROVIDERS.length - 1) {
+    switchProvider(currentProvider + 1);
+  } else {
+    document.getElementById('errorMsg').classList.add('visible');
+    document.getElementById('retryBtn').classList.add('visible');
+    document.getElementById('loading').style.display = 'flex';
+    document.getElementById('statusText').textContent = 'All sources failed';
+  }
+}
+
+function retry() {
+  currentProvider = -1;
+  tryNext();
+}
+
+function goBack() {
+  try { window.history.back(); } catch(e) { window.close(); }
+}
+
+// Load first provider
+buildTabs();
+switchProvider(0);
+
+// Mark loaded when iframe loads
+document.getElementById('playerFrame').onload = function() {
+  loaded = true;
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('statusText').textContent = PROVIDERS[currentProvider].name;
+};
+</script>
+</body>
+</html>
