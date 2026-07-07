@@ -1,0 +1,42 @@
+{
+    "headline": "Yacht Daddy",
+    "menu": [
+        {
+            "icon": "movie",
+            "label": "Movies",
+            "data": "https://mightremoteforever-crypto.github.io/tv-portal/content/movies.json"
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "icon": "live_tv",
+            "label": "Streaming",
+            "data": "https://mightremoteforever-crypto.github.io/tv-portal/content/streaming.json"
+        },
+        {
+            "icon": "play_arrow",
+            "label": "Video",
+            "data": "https://mightremoteforever-crypto.github.io/tv-portal/content/video.json"
+        },
+        {
+            "icon": "build",
+            "label": "Tools",
+            "data": "https://mightremoteforever-crypto.github.io/tv-portal/content/tools.json"
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "icon": "list",
+            "label": "All Apps",
+            "data": "https://mightremoteforever-crypto.github.io/tv-portal/content/all.json"
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "type": "settings"
+        }
+    ]
+}

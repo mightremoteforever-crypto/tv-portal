@@ -1,45 +1,9 @@
 {
     "name": "Yacht Daddy",
     "version": "1.0.0",
-    "parameter": "menu:{PREFIX}{SERVER}/msx/start.json",
+    "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/msx/menu.json",
     "launcher": {
         "icon": "directions-boat",
         "color": "msx-blue"
-    },
-    "menu": [
-        {
-            "icon": "movie",
-            "label": "Movies",
-            "data": "{PREFIX}{SERVER}/content/movies.json"
-        },
-        {
-            "icon": "live_tv",
-            "label": "Streaming",
-            "data": "{PREFIX}{SERVER}/content/streaming.json"
-        },
-        {
-            "icon": "play_arrow",
-            "label": "Video",
-            "data": "{PREFIX}{SERVER}/content/video.json"
-        },
-        {
-            "icon": "build",
-            "label": "Tools",
-            "data": "{PREFIX}{SERVER}/content/tools.json"
-        },
-        {
-            "type": "separator"
-        },
-        {
-            "icon": "list",
-            "label": "All Apps",
-            "data": "{PREFIX}{SERVER}/content/all.json"
-        },
-        {
-            "type": "separator"
-        },
-        {
-            "type": "settings"
-        }
-    ]
+    }
 }
