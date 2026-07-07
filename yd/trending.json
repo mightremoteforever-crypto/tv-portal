@@ -12,7 +12,7 @@
   "items": [
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=278&title=The Shawshank Redemption&year=1994",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=278&title=The Shawshank Redemption&year=1994",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -24,7 +24,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=238&title=The Godfather&year=1972",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=238&title=The Godfather&year=1972",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -36,7 +36,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=680&title=Pulp Fiction&year=1994",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=680&title=Pulp Fiction&year=1994",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -48,7 +48,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=155&title=The Dark Knight&year=2008",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=155&title=The Dark Knight&year=2008",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -60,7 +60,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=11&title=Star Wars&year=1977",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=11&title=Star Wars&year=1977",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -72,7 +72,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/velWPhVMQeQKcxggNEU8YmIo52R.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=497&title=The Green Mile&year=1999",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=497&title=The Green Mile&year=1999",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -84,7 +84,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=769&title=GoodFellas&year=1990",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=769&title=GoodFellas&year=1990",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -96,7 +96,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/6yoghtyTpznpBik8EngEmJskVUO.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=807&title=Se7en&year=1995",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=807&title=Se7en&year=1995",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -108,7 +108,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=550&title=Fight Club&year=1999",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=550&title=Fight Club&year=1999",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -120,7 +120,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/7fn624j5lj3xTme2SgiLCeuedmO.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=244786&title=Whiplash&year=2014",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=244786&title=Whiplash&year=2014",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -132,7 +132,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=278&title=12 Angry Men&year=1957",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=278&title=12 Angry Men&year=1957",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -144,7 +144,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=122&title=The Lord of the Rings: The Return of the King&year=2003",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=122&title=The Lord of the Rings: The Return of the King&year=2003",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -156,7 +156,7 @@
     },
     {
       "image": "https://image.tmdb.org/t/p/w342/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=424&title=Schindler's List&year=1993",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=424&title=Schindler's List&year=1993",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -168,7 +168,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=429&title=The Good, the Bad and the Ugly&year=1966",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=429&title=The Good, the Bad and the Ugly&year=1966",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -180,7 +180,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=240&title=The Godfather Part II&year=1974",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=240&title=The Godfather Part II&year=1974",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -192,7 +192,7 @@
     },
     {
       "image": "",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=346&title=Seven Samurai&year=1954",
+      "action": "link:{PREFIX}{SERVER}/player.html?tmdb=346&title=Seven Samurai&year=1954",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",

@@ -4,7 +4,7 @@
     {
       "icon": "play-circle-fill",
       "label": "Trending Movies",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/trending.json"
+      "data": "{PREFIX}{SERVER}/yd/trending.json"
     },
     {
       "type": "separator"
@@ -12,17 +12,17 @@
     {
       "icon": "play-circle-fill",
       "label": "Streaming",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/streaming.json"
+      "data": "{PREFIX}{SERVER}/yd/streaming.json"
     },
     {
       "icon": "play-circle-fill",
       "label": "Video",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/video.json"
+      "data": "{PREFIX}{SERVER}/yd/video.json"
     },
     {
       "icon": "build",
       "label": "Tools",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/tools.json"
+      "data": "{PREFIX}{SERVER}/yd/tools.json"
     },
     {
       "type": "separator"
@@ -30,7 +30,7 @@
     {
       "icon": "menu",
       "label": "All Apps",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/all.json"
+      "data": "{PREFIX}{SERVER}/yd/all.json"
     },
     {
       "type": "separator"
@@ -38,7 +38,7 @@
     {
       "icon": "wallpaper",
       "label": "Theme",
-      "data": "https://mightremoteforever-crypto.github.io/tv-portal/yd/tema/panel_tems.json"
+      "data": "{PREFIX}{SERVER}/yd/tema/panel_tems.json"
     },
     {
       "type": "separator"
