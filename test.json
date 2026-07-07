@@ -1,0 +1,16 @@
+{
+    "type": "list",
+    "headline": "Test Content",
+    "template": {
+        "type": "default",
+        "layout": "0,0,4,2",
+        "color": "msx-glass"
+    },
+    "items": [
+        {
+            "title": "Big Buck Bunny",
+            "action": "video:https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "icon": "play_circle_fill"
+        }
+    ]
+}
