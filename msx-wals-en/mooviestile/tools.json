@@ -19,7 +19,7 @@
           "text": "Smart TV web browser with auto-updating playlists. Watch movies, TV, listen to music and radio."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/fork_com.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
       "action": "link:http://browser.appfxml.com/"
     },
     {
@@ -31,7 +31,7 @@
           "text": "Curated public IPTV channels.{br}Works as-is. Works while it works."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/relax.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "action": "content: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json",
       "properties": {
         "trigger:back": "player:stop"

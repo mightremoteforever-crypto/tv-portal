@@ -4,6 +4,6 @@
   "dictionary": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/dictionary.json",
   "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/mooviestile/menu_ms.json",
   "launcher": {
-    "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/img/wals.png"
+    "image": "https://raw.githubusercontent.com/wals09/msx/main/img/wals.png"
   }
 }

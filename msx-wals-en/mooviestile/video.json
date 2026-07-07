@@ -19,7 +19,7 @@
           "text": "Russian online video hosting service."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/rutube.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/rutube.png",
       "action": "link:https://rutube.ru/tv-release/rutube.server-22.0.0/webos/"
     },
     {
@@ -31,7 +31,7 @@
           "text": "Yandex Video - search across video sites with in-page playback."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/yandex.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/yandex.png",
       "action": "link:https://yandex.ru/video/tvapp/?ui=tvapp"
     },
     {
@@ -43,7 +43,7 @@
           "text": "WebOS only.{br}Unofficial webOS app."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/tiktok.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
       "action": "link:https://tv.tiktok.com/webos"
     },
     {
@@ -55,7 +55,7 @@
           "text": "Blogger shows, movies, series, TV channels, live streams, kids cartoons, sports, music."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/vk.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/vk.png",
       "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/vkvideo/vk_template.json"
     },
     {
@@ -67,7 +67,7 @@
           "text": "Russian state multimedia platform by VGTRK media holding."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/smotrim.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/smotrim.png",
       "action": "link:https://tv.smotrim.ru"
     },
     {
@@ -79,7 +79,7 @@
           "text": "Online video hosting and viewing service."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/youtube.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "action": "link:https://www.youtube.com/tv#/"
     },
     {
@@ -91,7 +91,7 @@
           "text": "Separate YouTube version designed for children."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ytkids.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "action": "link:https://www.youtube.com/tv/kids"
     },
     {

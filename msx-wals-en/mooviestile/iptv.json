@@ -20,7 +20,7 @@
           "text": "IPTV player for m3u, m3u8, stalker-portal, and media libraries. Test playlist included."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/drm.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "action": "link:http://ott.drm-play.com"
     },
     {
@@ -32,7 +32,7 @@
           "text": "IPTV player supporting m3u and m3u8 playlists and media libraries."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/foss.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "action": "link:http://ott.prog4food.eu.org/f/"
     },
     {
@@ -44,7 +44,7 @@
           "text": "IPTV player. View your playlists, stalker portals, media libraries. Save and transfer settings."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ott-play.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "action": "link:http://ott-play.com/f/"
     },
     {
@@ -56,7 +56,7 @@
           "text": "IPTV player by LAMPA developers. View your own playlists."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon//icva.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/icva.png",
       "action": "link:http://icva.mx/"
     },
     {
@@ -68,7 +68,7 @@
           "text": "Service to merge your IPTV into one playlist, organize channels, and get EPG."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ottplayer.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "action": "link:http://widget.ottplayer.tv"
     },
     {
@@ -80,7 +80,7 @@
           "text": "Cross-platform player for m3u playlists. Audio, video, radio, live streams."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/one_player.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "action": "link:http://webos.oneplayer.me"
     }
   ]

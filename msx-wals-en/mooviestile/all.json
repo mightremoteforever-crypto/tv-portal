@@ -21,7 +21,7 @@
           "text": "IPTV player for m3u, m3u8, stalker-portal, and media libraries. Test playlist included."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/drm.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "action": "link:http://ott.drm-play.com"
     },
     {
@@ -33,7 +33,7 @@
           "text": "IPTV player supporting m3u and m3u8 playlists and media libraries."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/foss.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "action": "link:http://ott.prog4food.eu.org/f/"
     },
     {
@@ -45,7 +45,7 @@
           "text": "IPTV player. View your playlists, stalker portals, media libraries. Save and transfer settings."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ott-play.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "action": "link:http://ott-play.com/f/"
     },
     {
@@ -57,7 +57,7 @@
           "text": "IPTV player by LAMPA developers. View your own playlists."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon//icva.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/icva.png",
       "action": "link:http://icva.mx/"
     },
     {
@@ -69,7 +69,7 @@
           "text": "Service to merge your IPTV into one playlist, organize channels, and get EPG."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ottplayer.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "action": "link:http://widget.ottplayer.tv"
     },
     {
@@ -81,7 +81,7 @@
           "text": "Cross-platform player for m3u playlists. Audio, video, radio, live streams."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/one_player.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "action": "link:http://webos.oneplayer.me"
     },
     {
@@ -93,7 +93,7 @@
           "text": "Catalog app. Transforms into an online cinema with torrent and IPTV support."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/lampa.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa.png",
       "action": "link:http://lampa.mx"
     },
     {
@@ -105,7 +105,7 @@
           "text": "Lampa mod. Pre-configured for online viewing and IPTV."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/lampa_land/icon.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/lampa_land/icon.png",
       "action": "link:http://lampa.land"
     },
     {
@@ -117,7 +117,7 @@
           "text": "LAMPA with alternative addresses. Use cub.red to save/transfer settings so you don't have to reconfigure."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/lampset.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampset.png",
       "action": "panel: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/lampset/template.json",
       "properties": {
         "trigger:back": "player:stop"
@@ -132,7 +132,7 @@
           "text": "Lampa mod with plugin store and extras."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/bylampa.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/bylampa.png",
       "action": "link:http://bylampa.online"
     },
     {
@@ -144,7 +144,7 @@
           "text": "Lampa mod. In development - some features unavailable. Preview only."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/akter_black.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/akter_black.png",
       "action": "link:http://abvidaa.ru/"
     },
     {
@@ -156,7 +156,7 @@
           "text": "Lampa mod. In development - some features unavailable. Preview only."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/prisma.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/prisma.png",
       "action": "panel: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/prisma/template.json"
     },
     {
@@ -168,7 +168,7 @@
           "text": "Pre-configured for online viewing. Thanks to NoName."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/lampaNN.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampaNN.png",
       "action": "link: http://lam.nnmtv.pw/"
     },
     {
@@ -180,7 +180,7 @@
           "text": "Lampa Lite ready-to-use. Thanks to NoName."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/lampa_lite.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa_lite.png",
       "action": "link:http://lite.nnmtv.pw/"
     },
     {
@@ -192,7 +192,7 @@
           "text": "Lampa with pre-installed online plugins. Add more from the store."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/lampa.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/lampa.png",
       "action": "link:http://lampa.byskaz.ru"
     },
     {
@@ -216,7 +216,7 @@
           "text": "App for movies, series, anime, and torrents."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/atodo.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/atodo.png",
       "action": "menu:request:interaction:menu@http://atodo.fun/fun.html"
     },
     {
@@ -228,7 +228,7 @@
           "text": "Web version of ATODO. Watch movies, series, anime."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/atodo.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/atodo.png",
       "action": "link:http://msx.atodo.fun/"
     },
     {
@@ -252,7 +252,7 @@
           "text": "MOVIELAB portal on Media Station X. Online video content."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/movielab.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/movielab.png",
       "action": "menu:https://movielab.fun/msx/menu.json"
     },
     {
@@ -264,7 +264,7 @@
           "text": "Smart TV web browser with auto-updating playlists. Watch movies, TV, listen to music and radio."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/fork_com.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
       "action": "link:http://browser.appfxml.com/"
     },
     {
@@ -276,7 +276,7 @@
           "text": "App for movies, series, anime, and torrents."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/deeplex.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/deeplex.png",
       "action": "link:http://smart.deeplex.cc/"
     },
     {
@@ -288,7 +288,7 @@
           "text": "EmpireBOOM - organized links to media: movies, series, cartoons, IPTV, radio, etc."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/impire_boom.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/impire_boom.png",
       "action": "link:http://web.imboom.ru/"
     },
     {
@@ -300,7 +300,7 @@
           "text": "Video from multiple sources. Search movies, series, cartoons, anime, TV shows. Quality select. KBC channels. VIP for 3 devices."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/kinoboom.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/kinoboom.png",
       "action": "execute:info:extended:http://kb-team.club/msx/enter.php"
     },
     {
@@ -312,7 +312,7 @@
           "text": "Movies and cartoons. Largest database, updated daily, new releases after cinema premiere."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/getstv.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/getstv.png",
       "action": "panel:http://lg.getstv.ru/msx/msx.json"
     },
     {
@@ -324,7 +324,7 @@
           "text": "Online cinema (vPlay mod). Access via donation."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/tutkino.jpg",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tutkino.jpg",
       "action": "link:http://web.tutkino.fun/"
     },
     {
@@ -336,7 +336,7 @@
           "text": "Online cinema (Lampa Lite mod). Access via donation."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/tutkinolite.jpg",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tutkinolite.jpg",
       "action": "link:http://lite.tutkino.fun/"
     },
     {
@@ -348,7 +348,7 @@
           "text": "Russian online video hosting service."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/rutube.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/rutube.png",
       "action": "link:https://rutube.ru/tv-release/rutube.server-22.0.0/webos/"
     },
     {
@@ -360,7 +360,7 @@
           "text": "Yandex Video - search across video sites with in-page playback."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/yandex.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/yandex.png",
       "action": "link:https://yandex.ru/video/tvapp/?ui=tvapp"
     },
     {
@@ -372,7 +372,7 @@
           "text": "WebOS only.{br}Unofficial webOS app."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/tiktok.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
       "action": "link:https://tv.tiktok.com/webos"
     },
     {
@@ -384,7 +384,7 @@
           "text": "Blogger shows, movies, series, TV channels, live streams, kids cartoons, sports, music."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/vk.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/vk.png",
       "action": "panel:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/vkvideo/vk_template.json"
     },
     {
@@ -396,7 +396,7 @@
           "text": "Russian state multimedia platform by VGTRK media holding."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/smotrim.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/smotrim.png",
       "action": "link:https://tv.smotrim.ru"
     },
     {
@@ -408,7 +408,7 @@
           "text": "Online video hosting and viewing service."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/youtube.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "action": "link:https://www.youtube.com/tv#/"
     },
     {
@@ -420,7 +420,7 @@
           "text": "Separate YouTube version designed for children."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/ytkids.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "action": "link:https://www.youtube.com/tv/kids"
     },
     {
@@ -432,7 +432,7 @@
           "text": "Watch cartoons online. Soviet-era classics and more. Best cartoons from your childhood!"
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/multiki.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/multiki.png",
       "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/welcome.json"
     },
     {
@@ -444,7 +444,7 @@
           "text": "Curated public IPTV channels.{br}Works as-is. Works while it works."
         }
       },
-      "image": "https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/logon/relax.png",
+      "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "action": "content: https://mightremoteforever-crypto.github.io/tv-portal/msx-wals-en/bonus/relax.json",
       "properties": {
         "trigger:back": "player:stop"
