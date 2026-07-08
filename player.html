@@ -5,28 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yacht Daddy Player</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #0a0e1a; color: #c8d6e5; font-family: sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-#bar { background: #0d1b2a; padding: 10px 18px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #1e3a5f; flex-shrink: 0; }
-#bar h1 { font-size: 16px; color: #5dade2; }
-#bar button { background: #1e3a5f; border: none; color: #5dade2; padding: 5px 14px; border-radius: 4px; cursor: pointer; font-size: 13px; }
-#container { flex: 1; position: relative; background: #000; }
-#container iframe { width: 100%; height: 100%; border: none; }
-#status { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; background: #0a0e1a; z-index: 10; }
-#status .spin { width: 40px; height: 40px; border: 3px solid #1e3a5f; border-top: 3px solid #5dade2; border-radius: 50%; animation: s 0.7s linear infinite; }
-@keyframes s { to { transform: rotate(360deg); } }
-#status p { font-size: 13px; color: #7f8c8d; }
-#status .err { color: #e74c3c; display: none; font-size: 12px; }
-#status .retry { background: #5dade2; color: #0a0e1a; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none; }
-#tabs { display: flex; gap: 3px; padding: 6px 0; flex-shrink: 0; }
-#tabs button { background: transparent; color: #5dade2; border: 1px solid #1e3a5f; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
-#tabs button.on { background: #1e3a5f; border-color: #5dade2; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
+#bar { background:#0d1b2a; padding:10px 18px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #1e3a5f; flex-shrink:0; }
+#bar h1 { font-size:16px; color:#5dade2; }
+#bar button { background:#1e3a5f; border:none; color:#5dade2; padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; }
+#container { flex:1; position:relative; background:#000; }
+#container iframe { width:100%; height:100%; border:none; }
+#status { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:#0a0e1a; z-index:10; }
+#status .spin { width:40px; height:40px; border:3px solid #1e3a5f; border-top:3px solid #5dade2; border-radius:50%; animation:s 0.7s linear infinite; }
+@keyframes s { to { transform:rotate(360deg); } }
+#status p { font-size:13px; color:#7f8c8d; }
+#status .err { color:#e74c3c; display:none; font-size:12px; }
+#status .retry { background:#5dade2; color:#0a0e1a; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-weight:bold; display:none; }
+#tabs { display:flex; gap:3px; padding:6px 0; flex-shrink:0; overflow-x:auto; }
+#tabs button { background:transparent; color:#5dade2; border:1px solid #1e3a5f; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:11px; white-space:nowrap; }
+#tabs button.on { background:#1e3a5f; border-color:#5dade2; }
+#tv-select { display:none; padding:8px 18px; background:#0d1b2a; gap:8px; align-items:center; border-bottom:1px solid #1e3a5f; flex-shrink:0; }
+#tv-select label { font-size:12px; color:#7f8c8d; }
+#tv-select select,#tv-select input { background:#1e3a5f; border:1px solid #5dade2; color:#c8d6e5; padding:4px 8px; border-radius:4px; font-size:12px; }
+#tv-select input { width:50px; }
 </style>
 </head>
 <body>
 <div id="bar">
 <h1>⛵ Yacht Daddy</h1>
 <span style="font-size:12px;margin-left:auto;color:#7f8c8d" id="info"></span>
+</div>
+<div id="tv-select">
+<label>S:</label><input type="number" id="tv-s" value="1" min="1" max="99" onchange="buildTV()">
+<label>E:</label><input type="number" id="tv-e" value="1" min="1" max="99" onchange="buildTV()">
+<button onclick="loadTV(0)">Play Episode</button>
 </div>
 <div id="container">
 <div id="status"><div class="spin"></div><p>Finding stream...</p><div class="err" id="err">All sources failed.</div><button class="retry" id="retry" onclick="start()">Retry</button></div>
@@ -35,43 +44,92 @@ body { background: #0a0e1a; color: #c8d6e5; font-family: sans-serif; height: 100
 <div id="tabs"></div>
 <script>
 const P = new URLSearchParams(location.search);
-const tmdb = P.get('tmdb') || '680';
-document.getElementById('info').textContent = P.get('title') || '';
+const tmdb = P.get('tmdb') || '278';
+const title = P.get('title') || '';
+const year = P.get('year') || '';
+const type = P.get('type') || 'movie';
+const tvS = parseInt(P.get('season')) || 1;
+const tvE = parseInt(P.get('episode')) || 1;
 
-const providers = [
+document.getElementById('info').textContent = title ? title + (year ? ' (' + year + ')' : '') : '';
+document.getElementById('tv-s').value = tvS;
+document.getElementById('tv-e').value = tvE;
+
+const movieProviders = [
     { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
-    { n: 'VidLink', u: `https://vidlink.to/${tmdb}` },
-    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` },
-    { n: '2Embed', u: `https://www.2embed.cc/embed/${tmdb}` },
-    { n: 'AutoEmbed', u: `https://autoembed.cc/embed/movie/${tmdb}` },
+    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` }
 ];
+
+let tvProviders = [];
 let cur = 0, done = false;
 
-providers.forEach((p, i) => {
-    const b = document.createElement('button');
-    b.textContent = p.n;
-    b.onclick = () => load(i);
-    document.getElementById('tabs').appendChild(b);
-});
+function buildMovieTabs() {
+    document.getElementById('tv-select').style.display = 'none';
+    movieProviders.forEach((p, i) => {
+        const b = document.createElement('button');
+        b.textContent = p.n;
+        b.onclick = () => loadMovie(i);
+        document.getElementById('tabs').appendChild(b);
+    });
+    loadMovie(0);
+}
 
-function load(i) {
+function buildTV() {
+    const s = document.getElementById('tv-s').value || 1;
+    const e = document.getElementById('tv-e').value || 1;
+    tvProviders = [
+        { n: 'VidSrc', u: `https://vidsrc.fyi/embed/tv/${tmdb}` },
+        { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1&s=${s}&e=${e}` }
+    ];
+    document.getElementById('tabs').innerHTML = '';
+    tvProviders.forEach((p, i) => {
+        const b = document.createElement('button');
+        b.textContent = p.n;
+        b.onclick = () => loadTV(i);
+        document.getElementById('tabs').appendChild(b);
+    });
+}
+
+function loadMovie(i) {
     cur = i; done = false;
-    document.querySelectorAll('#tabs button').forEach(x => x.classList.remove('on'));
-    document.querySelectorAll('#tabs button')[i].classList.add('on');
+    updateTabs(i);
     document.getElementById('status').style.display = 'flex';
     document.getElementById('err').style.display = 'none';
     document.getElementById('retry').style.display = 'none';
-    document.getElementById('f').src = providers[i].u;
-    setTimeout(() => { if (!done) next(); }, 12000);
+    document.getElementById('f').src = movieProviders[i].u;
+    setTimeout(() => { if (!done) nextMovie(); }, 12000);
 }
 
-function next() { if (cur < providers.length - 1) load(cur + 1); else { document.getElementById('err').style.display = 'block'; document.getElementById('retry').style.display = 'block'; } }
-function start() { cur = -1; next(); }
+function loadTV(i) {
+    cur = i; done = false;
+    updateTabs(i);
+    document.getElementById('status').style.display = 'flex';
+    document.getElementById('err').style.display = 'none';
+    document.getElementById('retry').style.display = 'none';
+    document.getElementById('f').src = tvProviders[i].u;
+    setTimeout(() => { if (!done) nextTV(); }, 12000);
+}
+
+function updateTabs(i) {
+    document.querySelectorAll('#tabs button').forEach((x, j) => x.classList.toggle('on', j === i));
+}
+
+function nextMovie() { if (cur < movieProviders.length - 1) loadMovie(cur + 1); else showError(); }
+function nextTV() { if (cur < tvProviders.length - 1) loadTV(cur + 1); else showError(); }
+function showError() { document.getElementById('err').style.display = 'block'; document.getElementById('retry').style.display = 'block'; }
+function start() { cur = -1; if (type === 'tv') { buildTV(); loadTV(0); } else { nextMovie(); } }
 
 document.getElementById('f').onload = function() { done = true; document.getElementById('status').style.display = 'none'; };
-document.getElementById('f').onerror = function() { if (!done) next(); };
+document.getElementById('f').onerror = function() { if (!done) type === 'tv' ? nextTV() : nextMovie(); };
 
-load(0);
+if (type === 'tv') {
+    document.getElementById('tv-select').style.display = 'flex';
+    document.getElementById('info').textContent = (title || 'TV Show') + ' ' + (year || '');
+    buildTV();
+    loadTV(0);
+} else {
+    buildMovieTabs();
+}
 </script>
 </body>
 </html>
