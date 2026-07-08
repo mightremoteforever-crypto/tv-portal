@@ -16,12 +16,12 @@ var log=document.getElementById('d');
 function L(m,c){var e=document.createElement('div');if(c)e.className=c;e.textContent=new Date().toISOString().slice(11,19)+' '+m;log.insertBefore(e,log.firstChild||null);}
 
 var p=[
-{u:'https://vidsrc.xyz/embed/movie?tmdb='+t,n:'VidSrcX'},
 {u:'https://vidsrc.fyi/embed/movie/'+t,n:'VidSrc'},
-{u:'https://vidstream.site/embed/movie/'+t,n:'VidStream'},
-{u:'https://multiembed.mov/?video_id='+t+'&tmdb=1',n:'Multi'},
+{u:'https://multiembed.mov/?video_id='+t+'&tmdb=1',n:'MultiEmbed'},
 {u:'https://embed.su/embed/movie/'+t,n:'EmbedSU'},
-{u:'https://vidsrc.cc/v2/embed/movie/'+t,n:'VidSrcCC'},
+{u:'https://vidsrc.to/embed/movie/'+t,n:'VidSrcTo'},
+{u:'https://vidsrc.ru/embed/movie/'+t,n:'VidSrcRU'},
+{u:'https://vidcore.org/embed/movie/'+t,n:'VidCore'},
 ];
 var i=0,d=false,s=null,v=document.getElementById('v');
 
