@@ -1,12 +1,64 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Yacht Daddy ...</title>
-<body style="background:#0a0e1a">
+<title>Yacht Daddy Player</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body { width:100%; height:100%; overflow:hidden; background:#000; }
+#f { position:absolute; inset:0; width:100%; height:100%; border:none; }
+#bar { position:fixed; bottom:0; left:0; right:0; background:rgba(0,0,0,0.7); padding:12px; display:flex; gap:8px; justify-content:center; z-index:999; }
+#bar button { background:#0d1b2a; color:#5dade2; border:2px solid #1e3a5f; padding:10px 14px; border-radius:6px; font-size:14px; cursor:pointer; min-width:50px; }
+#bar button.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
+</style>
+</head>
+<body>
+<iframe id="f" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
+<div id="bar"></div>
 <script>
 (function(){
   var r=location.search.match(/[?&]tmdb=([^&]*)/);
   var tmdb=(r&&r[1])||'278';
-  location.replace('https://vaplayer.ru/embed/movie/'+tmdb+'?autoplay=1');
+  var prov=[
+    {n:'VidAPI',u:'https://vaplayer.ru/embed/movie/'+tmdb+'?autoplay=1'},
+    {n:'VidSrc',u:'https://vidsrc.fyi/embed/movie/'+tmdb},
+    {n:'MultiEmbed',u:'https://multiembed.mov/?video_id='+tmdb+'&tmdb=1'},
+    {n:'VidCore',u:'https://vidcore.org/embed/movie/'+tmdb}
+  ];
+  var cur=0,timeoutId=null,done=false;
+  var f=document.getElementById('f');
+  var bar=document.getElementById('bar');
+
+  for(var i=0;i<prov.length;i++){
+    (function(p,idx){
+      var b=document.createElement('button');
+      b.textContent=p.n;
+      b.onclick=function(){ load(idx); };
+      bar.appendChild(b);
+    })(prov[i],i);
+  }
+
+  function updateTabs(i){
+    var btns=bar.getElementsByTagName('button');
+    for(var j=0;j<btns.length;j++)btns[j].className=(j===i)?'on':'';
+    cur=i;
+  }
+
+  function load(i){
+    done=false;
+    if(timeoutId)clearTimeout(timeoutId);
+    updateTabs(i);
+    try{ f.src='about:blank'; }catch(e){}
+    f.src=prov[i].u;
+    timeoutId=setTimeout(function(){ if(!done&&cur<prov.length-1)load(cur+1); },10000);
+  }
+
+  f.onload=function(){ done=true; if(timeoutId)clearTimeout(timeoutId); };
+  f.onerror=function(){ if(!done&&cur<prov.length-1)load(cur+1); };
+
+  load(0);
 })();
 </script>
+</body>
+</html>
