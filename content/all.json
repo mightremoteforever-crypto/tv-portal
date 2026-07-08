@@ -5,98 +5,98 @@
     "type": "default",
     "layout": "0,0,1,1",
     "area": "0,0,12,6",
-    "trigger:back": "player:stop",
-    "color": "msx-glass",
-    "imageFiller": "cover"
+    "color": "msx-dark",
+    "imageFiller": "cover",
+    "imagePreload": false
   },
   "items": [
     {
-      "image": "https://image.tmdb.org/t/p/w342/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1339713&title=Obsession&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/bRwnj8WEKBCvmfeUNOukJPwB43K.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1339713&title=Obsession&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Obsession (2026)",
-          "text": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked fo"
+          "text": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked"
         }
       },
       "badge": "★ 8.3",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/lwmXob14Bslv1YcVT1VYt3zBfs9.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1280738&title=The Furious&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/lwmXob14Bslv1YcVT1VYt3zBfs9.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1280738&title=The Furious&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Furious (2026)",
-          "text": "After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her himse"
+          "text": "After Wang Wei's daughter is kidnapped by a criminal network and he receives no help from the corrupt police, Wei sets out to find her"
         }
       },
       "badge": "★ 7.7",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1108427&title=Moana&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/zKVgiv5qHCvCLT4A2ymJi5QeXDH.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1108427&title=Moana&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Moana (2026)",
-          "text": "Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with the infamous demigod Maui on a"
+          "text": "Moana answers the Ocean's call and, for the first time, voyages beyond the reef of her island of Motunui with the infamous demigod Maui on"
         }
       },
       "badge": "★ 5.6",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/7kRYHH9H9PjBFwz1FprbHB2AAjI.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1202033&title=Enola Holmes 3&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/7kRYHH9H9PjBFwz1FprbHB2AAjI.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1202033&title=Enola Holmes 3&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Enola Holmes 3 (2026)",
-          "text": "Adventure follows detective Enola Holmes to Malta, where her plans to tie the knot unravel when Sherlock's disappearance plunges her into a "
+          "text": "Adventure follows detective Enola Holmes to Malta, where her plans to tie the knot unravel when Sherlock's disappearance plunges her into a"
         }
       },
       "badge": "★ 7.0",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1368314&title=Passenger&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/2sOEJzhPzjTkZSlPbGxOJ7xgIyS.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1368314&title=Passenger&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Passenger (2026)",
-          "text": "After a young couple witnesses a gruesome highway accident, they soon realize they did not leave the crash scene alone, as a demonic presenc"
+          "text": "After a young couple witnesses a gruesome highway accident, they soon realize they did not leave the crash scene alone, as a demonic"
         }
       },
       "badge": "★ 5.7",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1315772&title=Minions & Monsters&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/nz7i42yhLIJ4ve9JKgM6NthoLHO.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1315772&title=Minions & Monsters&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Minions & Monsters (2026)",
-          "text": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything, unl"
+          "text": "This is the rambunctious, ridiculous and totally true story of how the Minions conquered Hollywood, became movie stars, lost everything,"
         }
       },
       "badge": "★ 6.4",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1083381&title=Backrooms&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/rhGx6E3qRNMgj3i5su2oukNHwIQ.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1083381&title=Backrooms&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
@@ -109,182 +109,182 @@
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1368337&title=The Odyssey&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/5rhTDKUhPYvpdQIijFIs5VoWsON.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1368337&title=The Odyssey&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Odyssey (2026)",
-          "text": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is f"
+          "text": "Odysseus, the legendary King of Ithaca, embarks on a long and perilous journey home following the Trojan War. Throughout his voyage, he is"
         }
       },
       "badge": "2026",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1314481&title=The Devil Wears Prada 2&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/fCAURTUx3YfsJ8k9I0UamjSILiR.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1314481&title=The Devil Wears Prada 2&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Devil Wears Prada 2 (2026)",
-          "text": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with former"
+          "text": "Andy Sachs returns to Runway as Miranda Priestly navigates a new media landscape and Runway's position within. The duo reconnect with"
         }
       },
       "badge": "★ 7.0",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/wLvUuBF2Yj0JmMGLUdRRVu7LvNB.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1084244&title=Toy Story 5&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/wLvUuBF2Yj0JmMGLUdRRVu7LvNB.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1084244&title=Toy Story 5&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Toy Story 5 (2026)",
-          "text": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become exponential"
+          "text": "When Bonnie receives a Lilypad tablet as a gift and becomes obsessed, Buzz, Woody, Jessie and the rest of the gang's jobs become"
         }
       },
       "badge": "★ 7.4",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/ztadKzIIR0ERYqpHteaPFtk7inP.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1212763&title=Evil Dead Burn&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/ztadKzIIR0ERYqpHteaPFtk7inP.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1212763&title=Evil Dead Burn&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Evil Dead Burn (2026)",
-          "text": "After the loss of her husband, a woman seeks solace with her in-laws. As one by one they transform into deadites, she comes to discover that"
+          "text": "After the loss of her husband, a woman seeks solace with her in-laws. As one by one they transform into deadites, she comes to discover"
         }
       },
       "badge": "★ 7.8",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/yyB2VJEW3an2xCdcYCPQhn9QERR.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=969681&title=Spider-Man: Brand New Day&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/yyB2VJEW3an2xCdcYCPQhn9QERR.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=969681&title=Spider-Man: Brand New Day&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Spider-Man: Brand New Day (2026)",
-          "text": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without him—s"
+          "text": "Fighting crime full-time as Spider-Man in a world that doesn't remember him—and the pressure of seeing his old friends move on without"
         }
       },
       "badge": "2026",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/moejGxR2haap29d9NQ7qe8x4eGj.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1081003&title=Supergirl&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/moejGxR2haap29d9NQ7qe8x4eGj.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1081003&title=Supergirl&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Supergirl (2026)",
-          "text": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely c"
+          "text": "When an unexpected and ruthless adversary strikes too close to home, Kara Zor-El, aka Supergirl, reluctantly joins forces with an unlikely"
         }
       },
       "badge": "★ 6.2",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=687163&title=Project Hail Mary&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/yihdXomYb5kTeSivtFndMy5iDmf.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=687163&title=Project Hail Mary&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Project Hail Mary (2026)",
-          "text": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his mem"
+          "text": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his"
         }
       },
       "badge": "★ 8.7",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/6LmJD3Wohe0g4U62wgi7RyJqfE4.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1413976&title=Citizen Vigilante&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/6LmJD3Wohe0g4U62wgi7RyJqfE4.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1413976&title=Citizen Vigilante&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Citizen Vigilante (2026)",
-          "text": "A man takes justice into his own hands, hunting down criminals. His vigilante crusade makes him a social media star but puts him at odds wit"
+          "text": "A man takes justice into his own hands, hunting down criminals. His vigilante crusade makes him a social media star but puts him at odds"
         }
       },
       "badge": "★ 6.6",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/TEaSqmI6TZQVimULYbingDIdXT.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1301421&title=The Sheep Detectives&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/TEaSqmI6TZQVimULYbingDIdXT.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1301421&title=The Sheep Detectives&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Sheep Detectives (2026)",
-          "text": "George Hardy is a shepherd who reads detective novels to his beloved sheep every night, assuming they can't possibly understand. But when a "
+          "text": "George Hardy is a shepherd who reads detective novels to his beloved sheep every night, assuming they can't possibly understand. But when a"
         }
       },
       "badge": "★ 7.8",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=936075&title=Michael&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/zm0KAbOjlt9eR5y7vDiL2dEOwMl.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=936075&title=Michael&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Michael (2026)",
-          "text": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from "
+          "text": "The story of Michael Jackson, one of the most influential artists the world has ever known, and his life beyond the music. His journey from"
         }
       },
       "badge": "★ 8.7",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/3SKN8QZptMm8KfCCQtEmyh1Zkgz.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1710008&title=Nothing to Lose&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/3SKN8QZptMm8KfCCQtEmyh1Zkgz.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1710008&title=Nothing to Lose&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "Nothing to Lose (2026)",
-          "text": "She gave everything to become a mother, so when her young son falls ill, Jada will stop at  nothing to find a donor and save him — no matter"
+          "text": "She gave everything to become a mother, so when her young son falls ill, Jada will stop at  nothing to find a donor and save him — no"
         }
       },
       "badge": "★ 5.0",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/mKmJJNd8Ge5KY6DtpTE2cXD0xnE.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1706919&title=The Ghost in the Shell&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/mKmJJNd8Ge5KY6DtpTE2cXD0xnE.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1706919&title=The Ghost in the Shell&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Ghost in the Shell (2026)",
-          "text": "In the year 2029, Niihama City has become a technologically advanced metropolis. Due to great improvements in cybernetics, its citizens are "
+          "text": "In the year 2029, Niihama City has become a technologically advanced metropolis. Due to great improvements in cybernetics, its citizens are"
         }
       },
       "badge": "★ 7.0",
       "badgeColor": "msx-yellow"
     },
     {
-      "image": "https://image.tmdb.org/t/p/w342/eJGWx219ZcEMVQJhAgMiqo8tYY.jpg",
-      "action": "link:https://mightremoteforever-crypto.github.io/tv-portal/player.html?tmdb=1226863&title=The Super Mario Galaxy Movie&year=2026",
+      "image": "https://image.tmdb.org/t/p/w185/eJGWx219ZcEMVQJhAgMiqo8tYY.jpg",
+      "action": "link:http://192.168.1.65:8080/msx/player.html?tmdb=1226863&title=The Super Mario Galaxy Movie&year=2026",
       "selection": {
         "important": true,
         "action": "update:content:underlay:text",
         "data": {
           "headline": "The Super Mario Galaxy Movie (2026)",
-          "text": "Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to "
+          "text": "Having thwarted Bowser's previous plot to marry Princess Peach, Mario and Luigi now face a fresh threat in Bowser Jr., who is determined to"
         }
       },
       "badge": "★ 8.2",

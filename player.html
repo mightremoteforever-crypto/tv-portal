@@ -56,12 +56,12 @@ document.getElementById('tv-s').value = tvS;
 document.getElementById('tv-e').value = tvE;
 
 const movieProviders = [
-    { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
-    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` }
+    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` },
+    { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` }
 ];
 
 let tvProviders = [];
-let cur = 0, done = false;
+let cur = 0, done = false, timeoutId = null;
 
 function buildMovieTabs() {
     document.getElementById('tv-select').style.display = 'none';
@@ -78,8 +78,8 @@ function buildTV() {
     const s = document.getElementById('tv-s').value || 1;
     const e = document.getElementById('tv-e').value || 1;
     tvProviders = [
-        { n: 'VidSrc', u: `https://vidsrc.fyi/embed/tv/${tmdb}` },
-        { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1&s=${s}&e=${e}` }
+        { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1&s=${s}&e=${e}` },
+        { n: 'VidSrc', u: `https://vidsrc.fyi/embed/tv/${tmdb}` }
     ];
     document.getElementById('tabs').innerHTML = '';
     tvProviders.forEach((p, i) => {
@@ -92,22 +92,26 @@ function buildTV() {
 
 function loadMovie(i) {
     cur = i; done = false;
+    if (timeoutId) clearTimeout(timeoutId);
     updateTabs(i);
     document.getElementById('status').style.display = 'flex';
     document.getElementById('err').style.display = 'none';
     document.getElementById('retry').style.display = 'none';
+    document.getElementById('f').src = 'about:blank';
     document.getElementById('f').src = movieProviders[i].u;
-    setTimeout(() => { if (!done) nextMovie(); }, 12000);
+    timeoutId = setTimeout(() => { if (!done) nextMovie(); }, 12000);
 }
 
 function loadTV(i) {
     cur = i; done = false;
+    if (timeoutId) clearTimeout(timeoutId);
     updateTabs(i);
     document.getElementById('status').style.display = 'flex';
     document.getElementById('err').style.display = 'none';
     document.getElementById('retry').style.display = 'none';
+    document.getElementById('f').src = 'about:blank';
     document.getElementById('f').src = tvProviders[i].u;
-    setTimeout(() => { if (!done) nextTV(); }, 12000);
+    timeoutId = setTimeout(() => { if (!done) nextTV(); }, 12000);
 }
 
 function updateTabs(i) {

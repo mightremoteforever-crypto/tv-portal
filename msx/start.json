@@ -1,7 +1,7 @@
 {
   "name": "Yacht Daddy Media Player",
   "version": "5.0.0",
-  "parameter": "menu:https://mightremoteforever-crypto.github.io/tv-portal/msx/menu.json",
+  "parameter": "content:{PREFIX}{SERVER}/msx/welcome.json",
   "launcher": {
     "icon": "directions-boat",
     "color": "msx-blue"
