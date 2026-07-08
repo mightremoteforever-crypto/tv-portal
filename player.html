@@ -6,51 +6,33 @@
 <title>Yacht Daddy Player</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
-#bar { background:#0d1b2a; padding:10px 18px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #1e3a5f; flex-shrink:0; z-index:20; }
-#bar h1 { font-size:16px; color:#5dade2; }
-#bar #info { font-size:12px; margin-left:auto; color:#7f8c8d; }
-#tabs { display:flex; gap:6px; padding:8px; flex-shrink:0; flex-wrap:wrap; background:#0d1b2a; border-bottom:1px solid #1e3a5f; z-index:20; }
-#tabs button { background:transparent; color:#5dade2; border:2px solid #1e3a5f; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:13px; min-width:60px; text-align:center; }
-#tabs button.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
-#tabs .skip { background:#5dade2; color:#0a0e1a; border-color:#5dade2; font-weight:bold; margin-left:auto; }
-#wrap { flex:1; display:flex; flex-direction:column; min-height:0; position:relative; background:#000; }
-#container { flex:1; min-height:0; position:relative; }
-#container iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
-#status { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:#0a0e1a; z-index:10; }
-#status .spin { width:40px; height:40px; border:3px solid #1e3a5f; border-top:3px solid #5dade2; border-radius:50%; animation:s 0.7s linear infinite; }
-@keyframes s { to { transform:rotate(360deg); } }
-#status p { font-size:13px; color:#7f8c8d; }
-#status .err { color:#e74c3c; display:none; font-size:14px; text-align:center; padding:0 20px; }
-#status .retry { background:#5dade2; color:#0a0e1a; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-weight:bold; display:none; }
-#tv-select { display:none; padding:8px 18px; background:#0d1b2a; gap:8px; align-items:center; border-bottom:1px solid #1e3a5f; flex-shrink:0; }
-@media (prefers-reduced-motion: reduce) { #status .spin { animation: none; } }
+body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; }
+.bar { background:#0d1b2a; padding:12px 18px; border-bottom:1px solid #1e3a5f; }
+.bar h1 { font-size:18px; color:#5dade2; display:inline; }
+.bar span { font-size:13px; color:#7f8c8d; margin-left:12px; }
+.picker { padding:24px; max-width:600px; margin:0 auto; }
+.picker p { font-size:14px; margin-bottom:16px; color:#7f8c8d; }
+.picker a { display:block; background:#0d1b2a; border:2px solid #1e3a5f; color:#5dade2; padding:14px 18px; border-radius:8px; text-decoration:none; font-size:15px; margin-bottom:8px; }
+.picker a.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
+.picker a.skip { background:#5dade2; color:#0a0e1a; border-color:#5dade2; font-weight:bold; text-align:center; }
+.err { color:#e74c3c; text-align:center; padding:40px; font-size:16px; }
 </style>
 </head>
 <body>
-<div id="bar">
+
+<div class="bar">
 <h1>⛵ Yacht Daddy</h1>
 <span id="info"></span>
 </div>
-<div id="tabs"></div>
-<div id="tv-select">
-<label>S:</label><input type="number" id="tv-s" value="1" min="1" max="99">
-<label>E:</label><input type="number" id="tv-e" value="1" min="1" max="99">
-<button onclick="loadTV(0)">Play Episode</button>
-</div>
-<div id="wrap">
-<div id="container">
-<div id="status"><div class="spin"></div><p>Loading stream...</p><div class="err" id="err">No providers can play this title.</div><button class="retry" id="retry" onclick="retryAll()">Try Again</button></div>
-<iframe id="f" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
-</div>
-</div>
+
+<div id="main"></div>
+
 <script>
 var P=new URLSearchParams(location.search), tmdb=P.get('tmdb')||'278', title=P.get('title')||'', year=P.get('year')||'',
-    type=P.get('type')||'movie', tvS=parseInt(P.get('season'))||1, tvE=parseInt(P.get('episode'))||1;
+    type=P.get('type')||'movie';
 document.getElementById('info').textContent=title?title+(year?' ('+year+')':''):'';
-document.getElementById('tv-s').value=tvS; document.getElementById('tv-e').value=tvE;
 
-const movieProviders=[
+var movieProviders=[
     { n: 'VidAPI', u: `https://vaplayer.ru/embed/movie/${tmdb}` },
     { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
     { n: 'VidPop', u: `https://www.vidpop.xyz/embed/?id=${tmdb}` },
@@ -59,107 +41,35 @@ const movieProviders=[
     { n: 'VixSrc', u: `https://vixsrc.to/movie/${tmdb}` },
     { n: 'VidSrcTo', u: `https://vidsrc.to/embed/movie/${tmdb}` }
 ];
-var tvProviders=[], cur=0, done=false, timeoutId=null, heartbeatId=null;
 
-function buildTabs(providers, loadFn) {
-    var t=document.getElementById('tabs');
-    t.innerHTML='';
-    providers.forEach(function(p,i) {
-        var b=document.createElement('button');
-        b.textContent=p.n; b.onclick=function(){ loadFn(i); };
-        t.appendChild(b);
+var tvProviders=[
+    { n: 'VidSrc', u: `https://vidsrc.fyi/embed/tv/${tmdb}/${s}/${e}` },
+        { n: 'VidPop', u: `https://www.vidpop.xyz/embed/?id=${tmdb}&season=${s}&episode=${e}` },
+        { n: 'VidSrcRU', u: `https://vidsrc.ru/embed/tv/${tmdb}` },
+        { n: 'Cinextream', u: `https://cinextream.net/api/embed/tv/${tmdb}/${s}/${e}` },
+        { n: 'VixSrc', u: `https://vixsrc.to/tv/${tmdb}/${s}/${e}` },
+        { n: 'VidAPI', u: `https://vaplayer.ru/embed/tv/${tmdb}/${s}/${e}` },
+        { n: 'VidSrcTo', u: `https://vidsrc.to/embed/tv/${tmdb}` }
+];
+
+var providers=(type==='tv')?tvProviders:movieProviders;
+var cur=parseInt(P.get('p')||'0');
+
+function render() {
+    var m=document.getElementById('main');
+    if(providers.length===0){ m.innerHTML='<div class="err">No providers available.</div>'; return; }
+    var h='<div class="picker"><p>Select a source for this title. Use ▼▲ on remote, then OK to confirm.</p>';
+    providers.forEach(function(p,i){
+        var c=(i===cur)?'on':'';
+        var sep=(p.u.indexOf('?')>-1)?'&':'?';
+        h+='<a href="'+p.u+sep+'p=0" class="'+c+'" data-i="'+i+'">'+p.n+'</a>';
     });
-    var s=document.createElement('button');
-    s.textContent='⏩ Skip'; s.className='skip';
-    s.onclick=function(){ skipProvider(); };
-    t.appendChild(s);
+    h+='<a href="'+(providers[(cur+1)%providers.length].u)+'&p=0" class="skip">Skip to next</a>';
+    h+='</div>';
+    m.innerHTML=h;
 }
 
-function updateTabs(i) {
-    var b=document.querySelectorAll('#tabs button:not(.skip)');
-    b.forEach(function(x,j){ x.className=j===i?'on':''; });
-}
-
-function skipProvider() {
-    if(type==='tv') nextTV(); else nextMovie();
-}
-
-function loadMovie(i) {
-    cur=i; done=false;
-    if(timeoutId) clearTimeout(timeoutId);
-    if(heartbeatId) clearTimeout(heartbeatId);
-    updateTabs(i);
-    document.getElementById('status').style.display='flex';
-    document.getElementById('status').querySelector('p').textContent='Starting '+movieProviders[i].n+'...';
-    document.getElementById('err').style.display='none';
-    document.getElementById('retry').style.display='none';
-    var f=document.getElementById('f');
-    try{ f.src='about:blank'; }catch(e){}
-    setTimeout(function(){
-        f.src=movieProviders[i].u;
-        timeoutId=setTimeout(function(){ if(!done) nextMovie(); }, 8000);
-    },100);
-}
-
-function loadTV(i) {
-    cur=i; done=false;
-    if(timeoutId) clearTimeout(timeoutId);
-    if(heartbeatId) clearTimeout(heartbeatId);
-    updateTabs(i);
-    document.getElementById('status').style.display='flex';
-    document.getElementById('status').querySelector('p').textContent='Starting '+tvProviders[i].n+'...';
-    document.getElementById('err').style.display='none';
-    document.getElementById('retry').style.display='none';
-    var f=document.getElementById('f');
-    try{ f.src='about:blank'; }catch(e){}
-    setTimeout(function(){
-        f.src=tvProviders[i].u;
-        timeoutId=setTimeout(function(){ if(!done) nextTV(); }, 8000);
-    },100);
-}
-
-function nextMovie() { if(cur<movieProviders.length-1) { loadMovie(cur+1); } else { showError(); } }
-function nextTV() { if(cur<tvProviders.length-1) { loadTV(cur+1); } else { showError(); } }
-function showError() { document.getElementById('err').style.display='block'; document.getElementById('retry').style.display='block'; document.getElementById('status').querySelector('p').textContent=''; }
-
-function retryAll() { cur=-1; if(type==='tv') buildTV(); else buildMovieTabs(); }
-
-document.getElementById('f').onload=function() {
-    done=true;
-    document.getElementById('status').style.display='none';
-    if(timeoutId) clearTimeout(timeoutId);
-    // Heartbeat: if embed says unavailable, user can skip manually
-    heartbeatId=setTimeout(function(){ if(done) { done=false; } }, 15000);
-};
-document.getElementById('f').onerror=function() { if(!done) skipProvider(); };
-
-function cleanup() {
-    if(timeoutId){ clearTimeout(timeoutId); timeoutId=null; }
-    if(heartbeatId){ clearTimeout(heartbeatId); heartbeatId=null; }
-    var f=document.getElementById('f');
-    if(f){ try{ f.src='about:blank'; }catch(e){} f.onload=null; f.onerror=null; }
-    done=true;
-}
-function resume() { retryAll(); }
-window.addEventListener('pagehide',cleanup);
-window.addEventListener('beforeunload',cleanup);
-window.addEventListener('unload',cleanup);
-
-// Keyboard nav for TV remote
-document.addEventListener('keydown',function(e) {
-    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); skipProvider(); }
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); skipProvider(); }
-});
-
-if(type==='tv') {
-    document.getElementById('tv-select').style.display='flex';
-    document.getElementById('info').textContent=(title||'TV Show')+(year?' '+year:'');
-    buildTabs(tvProviders,loadTV);
-    loadTV(0);
-} else {
-    buildTabs(movieProviders,loadMovie);
-    loadMovie(0);
-}
+render();
 </script>
 </body>
 </html>
