@@ -6,8 +6,7 @@
     "layout": "0,0,1,1",
     "area": "0,0,12,6",
     "color": "msx-dark",
-    "imageFiller": "cover",
-    "imagePreload": false
+    "imageFiller": "cover"
   },
   "items": [
     {
