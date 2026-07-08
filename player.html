@@ -126,6 +126,11 @@ function start() { cur = -1; if (type === 'tv') { buildTV(); loadTV(0); } else {
 document.getElementById('f').onload = function() { done = true; document.getElementById('status').style.display = 'none'; };
 document.getElementById('f').onerror = function() { if (!done) type === 'tv' ? nextTV() : nextMovie(); };
 
+function cleanup() { if (timeoutId) clearTimeout(timeoutId); var f=document.getElementById('f'); if(f){ f.src='about:blank'; f.onload=null; f.onerror=null; } }
+window.addEventListener('pagehide', cleanup);
+window.addEventListener('beforeunload', cleanup);
+window.addEventListener('unload', cleanup);
+
 if (type === 'tv') {
     document.getElementById('tv-select').style.display = 'flex';
     document.getElementById('info').textContent = (title || 'TV Show') + ' ' + (year || '');

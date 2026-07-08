@@ -1,17 +1,1 @@
-{
-  "type": "list",
-  "headline": "",
-  "background": "https://images.unsplash.com/photo-1733259649730-46aa8c032e8d?w=1920&q=80",
-  "transparent": 1,
-  "template": {
-    "type": "space",
-    "layout": "0,0,12,6"
-  },
-  "items": [
-    {
-      "type": "space",
-      "layout": "0,0,12,6"
-    }
-  ],
-  "ready": "delay:welcome:3:menu:https://mightremoteforever-crypto.github.io/tv-portal/msx/menu.json"
-}
+{"name":"Yacht Daddy Media Player","version":"5.2.0","parameter":"menu:https://mightremoteforever-crypto.github.io/tv-portal/msx/menu.json","launcher":{"icon":"directions-boat","color":"msx-blue"}}
