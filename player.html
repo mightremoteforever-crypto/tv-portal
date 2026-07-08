@@ -49,7 +49,12 @@ document.getElementById('tv-s').value=tvS; document.getElementById('tv-e').value
 
 const movieProviders=[
     { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
-    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` }
+    { n: 'VidPop', u: `https://www.vidpop.xyz/embed/?id=${tmdb}` },
+    { n: 'VidSrcRU', u: `https://vidsrc.ru/embed/movie/${tmdb}` },
+    { n: 'Cinextream', u: `https://cinextream.net/api/embed/movie/${tmdb}` },
+    { n: 'VixSrc', u: `https://vixsrc.to/movie/${tmdb}` },
+    { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` },
+    { n: 'VidSrcTo', u: `https://vidsrc.to/embed/movie/${tmdb}` }
 ];
 var tvProviders=[], cur=0, done=false, timeoutId=null, heartbeatId=null;
 
