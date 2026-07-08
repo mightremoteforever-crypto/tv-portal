@@ -25,6 +25,9 @@ body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; 
 #tv-select label { font-size:12px; color:#7f8c8d; }
 #tv-select select,#tv-select input { background:#1e3a5f; border:1px solid #5dade2; color:#c8d6e5; padding:4px 8px; border-radius:4px; font-size:12px; }
 #tv-select input { width:50px; }
+@media (prefers-reduced-motion: reduce) {
+    #status .spin { animation: none; }
+}
 </style>
 </head>
 <body>
@@ -42,7 +45,7 @@ body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; 
 <iframe id="f" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
 </div>
 <div id="tabs"></div>
-<script>
+<script type="text/javascript">
 const P = new URLSearchParams(location.search);
 const tmdb = P.get('tmdb') || '278';
 const title = P.get('title') || '';
@@ -99,7 +102,7 @@ function loadMovie(i) {
     document.getElementById('retry').style.display = 'none';
     document.getElementById('f').src = 'about:blank';
     document.getElementById('f').src = movieProviders[i].u;
-    timeoutId = setTimeout(() => { if (!done) nextMovie(); }, 12000);
+    timeoutId = setTimeout(() => { if (!done) nextMovie(); }, 10000);
 }
 
 function loadTV(i) {
@@ -111,7 +114,7 @@ function loadTV(i) {
     document.getElementById('retry').style.display = 'none';
     document.getElementById('f').src = 'about:blank';
     document.getElementById('f').src = tvProviders[i].u;
-    timeoutId = setTimeout(() => { if (!done) nextTV(); }, 12000);
+    timeoutId = setTimeout(() => { if (!done) nextTV(); }, 10000);
 }
 
 function updateTabs(i) {
@@ -126,10 +129,34 @@ function start() { cur = -1; if (type === 'tv') { buildTV(); loadTV(0); } else {
 document.getElementById('f').onload = function() { done = true; document.getElementById('status').style.display = 'none'; };
 document.getElementById('f').onerror = function() { if (!done) type === 'tv' ? nextTV() : nextMovie(); };
 
-function cleanup() { if (timeoutId) clearTimeout(timeoutId); var f=document.getElementById('f'); if(f){ f.src='about:blank'; f.onload=null; f.onerror=null; } }
+function cleanup() {
+    if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
+    var f = document.getElementById('f');
+    if (f) {
+        try { f.src = 'about:blank'; } catch(e) {}
+        f.onload = null;
+        f.onerror = null;
+    }
+    done = true;
+}
+function resume() { start(); }
 window.addEventListener('pagehide', cleanup);
 window.addEventListener('beforeunload', cleanup);
 window.addEventListener('unload', cleanup);
+function lazyLoadImages() {
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    var img = e.target;
+                    if (img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
+                    obs.unobserve(img);
+                }
+            });
+        }, { rootMargin: '200px' });
+        document.querySelectorAll('img[data-src]').forEach(function(img) { obs.observe(img); });
+    }
+}
 
 if (type === 'tv') {
     document.getElementById('tv-select').style.display = 'flex';
