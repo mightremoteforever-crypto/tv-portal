@@ -39,7 +39,7 @@ body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; 
 </div>
 <div id="container">
 <div id="status"><div class="spin"></div><p>Loading stream...</p><div class="err" id="err">No providers can play this title.</div><button class="retry" id="retry" onclick="retryAll()">Try Again</button></div>
-<iframe id="f" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" sandbox="allow-scripts allow-same-origin"></iframe>
+<iframe id="f" allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>
 </div>
 <script>
 var P=new URLSearchParams(location.search), tmdb=P.get('tmdb')||'278', title=P.get('title')||'', year=P.get('year')||'',
