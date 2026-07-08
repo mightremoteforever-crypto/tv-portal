@@ -10,6 +10,7 @@
   },
   "items": [
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/youtube.png",
       "action": "link:https://www.youtube.com/tv#/",
       "selection": {
@@ -22,6 +23,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ytkids.png",
       "action": "link:https://www.youtube.com/tv/kids",
       "selection": {
@@ -34,6 +36,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/tiktok.png",
       "action": "link:https://tv.tiktok.com/webos",
       "selection": {

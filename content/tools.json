@@ -10,6 +10,7 @@
   },
   "items": [
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/fork_com.png",
       "action": "link:http://browser.appfxml.com/",
       "selection": {
@@ -22,6 +23,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "action": "content:https://mightremoteforever-crypto.github.io/tv-portal/content/relax.json",
       "selection": {

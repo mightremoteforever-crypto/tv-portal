@@ -10,6 +10,7 @@
   },
   "items": [
     {
+      "type": "default",
       "image": "https://www.stremio.com/website/stremio-logo.png",
       "action": "link:https://stremio.com/download-service",
       "selection": {
@@ -22,6 +23,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/drm.png",
       "action": "link:http://ott.drm-play.com",
       "selection": {
@@ -34,6 +36,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ott-play.png",
       "action": "link:http://ott-play.com/f/",
       "selection": {
@@ -46,6 +49,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/foss.png",
       "action": "link:http://ott.prog4food.eu.org/f/",
       "selection": {
@@ -58,6 +62,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/ottplayer.png",
       "action": "link:http://widget.ottplayer.tv",
       "selection": {
@@ -70,6 +75,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/one_player.png",
       "action": "link:http://webos.oneplayer.me",
       "selection": {

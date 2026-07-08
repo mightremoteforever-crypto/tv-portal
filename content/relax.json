@@ -10,6 +10,7 @@
   },
   "items": [
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "action": "link:https://www.youtube.com/results?search_query=relaxing+nature+4k+no+music",
       "selection": {
@@ -22,6 +23,7 @@
       }
     },
     {
+      "type": "default",
       "image": "https://raw.githubusercontent.com/wals09/msx/main/logon/relax.png",
       "action": "link:https://www.youtube.com/results?search_query=ocean+waves+sleep+sounds+10+hours",
       "selection": {
