@@ -9,162 +9,148 @@
 body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; height:100vh; display:flex; flex-direction:column; overflow:hidden; }
 #bar { background:#0d1b2a; padding:10px 18px; display:flex; align-items:center; gap:8px; border-bottom:1px solid #1e3a5f; flex-shrink:0; }
 #bar h1 { font-size:16px; color:#5dade2; }
-#bar button { background:#1e3a5f; border:none; color:#5dade2; padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; }
+#bar #info { font-size:12px; margin-left:auto; color:#7f8c8d; }
+#tabs { display:flex; gap:6px; padding:8px; flex-shrink:0; flex-wrap:wrap; background:#0d1b2a; border-bottom:1px solid #1e3a5f; }
+#tabs button { background:transparent; color:#5dade2; border:2px solid #1e3a5f; padding:10px 16px; border-radius:6px; cursor:pointer; font-size:14px; min-width:70px; text-align:center; }
+#tabs button.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
+#tabs .skip { background:#5dade2; color:#0a0e1a; border-color:#5dade2; font-weight:bold; margin-left:auto; }
 #container { flex:1; position:relative; background:#000; }
 #container iframe { width:100%; height:100%; border:none; }
 #status { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; background:#0a0e1a; z-index:10; }
 #status .spin { width:40px; height:40px; border:3px solid #1e3a5f; border-top:3px solid #5dade2; border-radius:50%; animation:s 0.7s linear infinite; }
 @keyframes s { to { transform:rotate(360deg); } }
 #status p { font-size:13px; color:#7f8c8d; }
-#status .err { color:#e74c3c; display:none; font-size:12px; }
+#status .err { color:#e74c3c; display:none; font-size:14px; text-align:center; padding:0 20px; }
 #status .retry { background:#5dade2; color:#0a0e1a; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; font-weight:bold; display:none; }
-#tabs { display:flex; gap:6px; padding:8px; flex-shrink:0; flex-wrap:wrap; }
-#tabs button { background:transparent; color:#5dade2; border:2px solid #1e3a5f; padding:10px 16px; border-radius:6px; cursor:pointer; font-size:14px; white-space:nowrap; min-width:80px; text-align:center; }
-#tabs button.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
 #tv-select { display:none; padding:8px 18px; background:#0d1b2a; gap:8px; align-items:center; border-bottom:1px solid #1e3a5f; flex-shrink:0; }
-#tv-select label { font-size:12px; color:#7f8c8d; }
-#tv-select select,#tv-select input { background:#1e3a5f; border:1px solid #5dade2; color:#c8d6e5; padding:4px 8px; border-radius:4px; font-size:12px; }
-#tv-select input { width:50px; }
-@media (prefers-reduced-motion: reduce) {
-    #status .spin { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { #status .spin { animation: none; } }
 </style>
 </head>
 <body>
 <div id="bar">
 <h1>⛵ Yacht Daddy</h1>
-<span style="font-size:12px;margin-left:auto;color:#7f8c8d" id="info"></span>
+<span id="info"></span>
 </div>
+<div id="tabs"></div>
 <div id="tv-select">
-<label>S:</label><input type="number" id="tv-s" value="1" min="1" max="99" onchange="buildTV()">
-<label>E:</label><input type="number" id="tv-e" value="1" min="1" max="99" onchange="buildTV()">
+<label>S:</label><input type="number" id="tv-s" value="1" min="1" max="99">
+<label>E:</label><input type="number" id="tv-e" value="1" min="1" max="99">
 <button onclick="loadTV(0)">Play Episode</button>
 </div>
 <div id="container">
-<div id="status"><div class="spin"></div><p>Finding stream...</p><div class="err" id="err">All sources failed.</div><button class="retry" id="retry" onclick="start()">Retry</button></div>
+<div id="status"><div class="spin"></div><p>Loading stream...</p><div class="err" id="err">No providers can play this title.</div><button class="retry" id="retry" onclick="retryAll()">Try Again</button></div>
 <iframe id="f" allowfullscreen allow="autoplay;encrypted-media;picture-in-picture"></iframe>
 </div>
-<div id="tabs"></div>
-<script type="text/javascript">
-const P = new URLSearchParams(location.search);
-const tmdb = P.get('tmdb') || '278';
-const title = P.get('title') || '';
-const year = P.get('year') || '';
-const type = P.get('type') || 'movie';
-const tvS = parseInt(P.get('season')) || 1;
-const tvE = parseInt(P.get('episode')) || 1;
+<script>
+var P=new URLSearchParams(location.search), tmdb=P.get('tmdb')||'278', title=P.get('title')||'', year=P.get('year')||'',
+    type=P.get('type')||'movie', tvS=parseInt(P.get('season'))||1, tvE=parseInt(P.get('episode'))||1;
+document.getElementById('info').textContent=title?title+(year?' ('+year+')':''):'';
+document.getElementById('tv-s').value=tvS; document.getElementById('tv-e').value=tvE;
 
-document.getElementById('info').textContent = title ? title + (year ? ' (' + year + ')' : '') : '';
-document.getElementById('tv-s').value = tvS;
-document.getElementById('tv-e').value = tvE;
-
-const movieProviders = [
+const movieProviders=[
     { n: 'VidSrc', u: `https://vidsrc.fyi/embed/movie/${tmdb}` },
     { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1` }
 ];
+var tvProviders=[], cur=0, done=false, timeoutId=null, heartbeatId=null;
 
-let tvProviders = [];
-let cur = 0, done = false, timeoutId = null;
-
-function buildMovieTabs() {
-    document.getElementById('tv-select').style.display = 'none';
-    movieProviders.forEach((p, i) => {
-        const b = document.createElement('button');
-        b.textContent = p.n;
-        b.onclick = () => loadMovie(i);
-        document.getElementById('tabs').appendChild(b);
+function buildTabs(providers, loadFn) {
+    var t=document.getElementById('tabs');
+    t.innerHTML='';
+    providers.forEach(function(p,i) {
+        var b=document.createElement('button');
+        b.textContent=p.n; b.onclick=function(){ loadFn(i); };
+        t.appendChild(b);
     });
-    loadMovie(0);
-}
-
-function buildTV() {
-    const s = document.getElementById('tv-s').value || 1;
-    const e = document.getElementById('tv-e').value || 1;
-    tvProviders = [
-        { n: 'VidSrc', u: `https://vidsrc.fyi/embed/tv/${tmdb}` },
-        { n: 'MultiEmbed', u: `https://multiembed.mov/?video_id=${tmdb}&tmdb=1&s=${s}&e=${e}` }
-    ];
-    document.getElementById('tabs').innerHTML = '';
-    tvProviders.forEach((p, i) => {
-        const b = document.createElement('button');
-        b.textContent = p.n;
-        b.onclick = () => loadTV(i);
-        document.getElementById('tabs').appendChild(b);
-    });
-}
-
-function loadMovie(i) {
-    cur = i; done = false;
-    if (timeoutId) clearTimeout(timeoutId);
-    updateTabs(i);
-    document.getElementById('status').style.display = 'flex';
-    document.getElementById('err').style.display = 'none';
-    document.getElementById('retry').style.display = 'none';
-    document.getElementById('f').src = 'about:blank';
-    document.getElementById('f').src = movieProviders[i].u;
-    timeoutId = setTimeout(() => { if (!done) nextMovie(); }, 10000);
-}
-
-function loadTV(i) {
-    cur = i; done = false;
-    if (timeoutId) clearTimeout(timeoutId);
-    updateTabs(i);
-    document.getElementById('status').style.display = 'flex';
-    document.getElementById('err').style.display = 'none';
-    document.getElementById('retry').style.display = 'none';
-    document.getElementById('f').src = 'about:blank';
-    document.getElementById('f').src = tvProviders[i].u;
-    timeoutId = setTimeout(() => { if (!done) nextTV(); }, 10000);
+    var s=document.createElement('button');
+    s.textContent='⏩ Skip'; s.className='skip';
+    s.onclick=function(){ skipProvider(); };
+    t.appendChild(s);
 }
 
 function updateTabs(i) {
-    document.querySelectorAll('#tabs button').forEach((x, j) => x.classList.toggle('on', j === i));
+    var b=document.querySelectorAll('#tabs button:not(.skip)');
+    b.forEach(function(x,j){ x.className=j===i?'on':''; });
 }
 
-function nextMovie() { if (cur < movieProviders.length - 1) loadMovie(cur + 1); else showError(); }
-function nextTV() { if (cur < tvProviders.length - 1) loadTV(cur + 1); else showError(); }
-function showError() { document.getElementById('err').style.display = 'block'; document.getElementById('retry').style.display = 'block'; }
-function start() { cur = -1; if (type === 'tv') { buildTV(); loadTV(0); } else { nextMovie(); } }
+function skipProvider() {
+    if(type==='tv') nextTV(); else nextMovie();
+}
 
-document.getElementById('f').onload = function() { done = true; document.getElementById('status').style.display = 'none'; };
-document.getElementById('f').onerror = function() { if (!done) type === 'tv' ? nextTV() : nextMovie(); };
+function loadMovie(i) {
+    cur=i; done=false;
+    if(timeoutId) clearTimeout(timeoutId);
+    if(heartbeatId) clearTimeout(heartbeatId);
+    updateTabs(i);
+    document.getElementById('status').style.display='flex';
+    document.getElementById('status').querySelector('p').textContent='Starting '+movieProviders[i].n+'...';
+    document.getElementById('err').style.display='none';
+    document.getElementById('retry').style.display='none';
+    var f=document.getElementById('f');
+    try{ f.src='about:blank'; }catch(e){}
+    setTimeout(function(){
+        f.src=movieProviders[i].u;
+        timeoutId=setTimeout(function(){ if(!done) nextMovie(); }, 8000);
+    },100);
+}
+
+function loadTV(i) {
+    cur=i; done=false;
+    if(timeoutId) clearTimeout(timeoutId);
+    if(heartbeatId) clearTimeout(heartbeatId);
+    updateTabs(i);
+    document.getElementById('status').style.display='flex';
+    document.getElementById('status').querySelector('p').textContent='Starting '+tvProviders[i].n+'...';
+    document.getElementById('err').style.display='none';
+    document.getElementById('retry').style.display='none';
+    var f=document.getElementById('f');
+    try{ f.src='about:blank'; }catch(e){}
+    setTimeout(function(){
+        f.src=tvProviders[i].u;
+        timeoutId=setTimeout(function(){ if(!done) nextTV(); }, 8000);
+    },100);
+}
+
+function nextMovie() { if(cur<movieProviders.length-1) { loadMovie(cur+1); } else { showError(); } }
+function nextTV() { if(cur<tvProviders.length-1) { loadTV(cur+1); } else { showError(); } }
+function showError() { document.getElementById('err').style.display='block'; document.getElementById('retry').style.display='block'; document.getElementById('status').querySelector('p').textContent=''; }
+
+function retryAll() { cur=-1; if(type==='tv') buildTV(); else buildMovieTabs(); }
+
+document.getElementById('f').onload=function() {
+    done=true;
+    document.getElementById('status').style.display='none';
+    if(timeoutId) clearTimeout(timeoutId);
+    // Heartbeat: if embed says unavailable, user can skip manually
+    heartbeatId=setTimeout(function(){ if(done) { done=false; } }, 15000);
+};
+document.getElementById('f').onerror=function() { if(!done) skipProvider(); };
 
 function cleanup() {
-    if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; }
-    var f = document.getElementById('f');
-    if (f) {
-        try { f.src = 'about:blank'; } catch(e) {}
-        f.onload = null;
-        f.onerror = null;
-    }
-    done = true;
+    if(timeoutId){ clearTimeout(timeoutId); timeoutId=null; }
+    if(heartbeatId){ clearTimeout(heartbeatId); heartbeatId=null; }
+    var f=document.getElementById('f');
+    if(f){ try{ f.src='about:blank'; }catch(e){} f.onload=null; f.onerror=null; }
+    done=true;
 }
-function resume() { start(); }
-window.addEventListener('pagehide', cleanup);
-window.addEventListener('beforeunload', cleanup);
-window.addEventListener('unload', cleanup);
-function lazyLoadImages() {
-    if ('IntersectionObserver' in window) {
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) {
-                    var img = e.target;
-                    if (img.dataset.src) { img.src = img.dataset.src; img.removeAttribute('data-src'); }
-                    obs.unobserve(img);
-                }
-            });
-        }, { rootMargin: '200px' });
-        document.querySelectorAll('img[data-src]').forEach(function(img) { obs.observe(img); });
-    }
-}
+function resume() { retryAll(); }
+window.addEventListener('pagehide',cleanup);
+window.addEventListener('beforeunload',cleanup);
+window.addEventListener('unload',cleanup);
 
-if (type === 'tv') {
-    document.getElementById('tv-select').style.display = 'flex';
-    document.getElementById('info').textContent = (title || 'TV Show') + ' ' + (year || '');
-    buildTV();
+// Keyboard nav for TV remote
+document.addEventListener('keydown',function(e) {
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ e.preventDefault(); skipProvider(); }
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ e.preventDefault(); skipProvider(); }
+});
+
+if(type==='tv') {
+    document.getElementById('tv-select').style.display='flex';
+    document.getElementById('info').textContent=(title||'TV Show')+(year?' '+year:'');
+    buildTabs(tvProviders,loadTV);
     loadTV(0);
 } else {
-    buildMovieTabs();
+    buildTabs(movieProviders,loadMovie);
+    loadMovie(0);
 }
 </script>
 </body>
