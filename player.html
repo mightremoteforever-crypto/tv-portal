@@ -6,74 +6,19 @@
 <title>Yacht Daddy Player</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0a0e1a; color:#c8d6e5; font-family:sans-serif; }
-.bar { background:#0d1b2a; padding:12px 18px; border-bottom:1px solid #1e3a5f; }
-.bar h1 { font-size:18px; color:#5dade2; display:inline; }
-.bar span { font-size:13px; color:#7f8c8d; margin-left:12px; }
-.picker { padding:24px; max-width:600px; margin:0 auto; }
-.picker p { font-size:14px; margin-bottom:16px; color:#7f8c8d; }
-.picker a { display:block; background:#0d1b2a; border:2px solid #1e3a5f; color:#5dade2; padding:14px 18px; border-radius:8px; text-decoration:none; font-size:15px; margin-bottom:8px; }
-.picker a.on { background:#1e3a5f; border-color:#5dade2; color:#fff; font-weight:bold; }
-.picker a.skip { background:#5dade2; color:#0a0e1a; border-color:#5dade2; font-weight:bold; text-align:center; }
-.err { color:#e74c3c; text-align:center; padding:40px; font-size:16px; }
+body { background:#000; }
+#f { position:absolute; inset:0; width:100%; height:100%; border:none; }
 </style>
 </head>
 <body>
-
-<div class="bar">
-<h1>⛵ Yacht Daddy</h1>
-<span id="info"></span>
-</div>
-
-<div id="main"></div>
-
+<iframe id="f" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-presentation"></iframe>
 <script>
-function qs(n){var r=location.search.match(new RegExp('[?&]'+n+'=([^&]*)'));return r?decodeURIComponent(r[1]):'';}
-var tmdb=qs('tmdb')||'278',title=qs('title')||'',year=qs('year')||'',type=qs('type')||'movie';
-document.getElementById('info').textContent=title+(year?' ('+year+')':'');
-
-var movieProviders=[
-    {n:'VidAPI',u:'https://vaplayer.ru/embed/movie/@@ID@@'},
-    {n:'VidSrc',u:'https://vidsrc.fyi/embed/movie/@@ID@@'},
-    {n:'VidPop',u:'https://www.vidpop.xyz/embed/?id=@@ID@@'},
-    {n:'VidSrcRU',u:'https://vidsrc.ru/embed/movie/@@ID@@'},
-    {n:'Cinextream',u:'https://cinextream.net/api/embed/movie/@@ID@@'},
-    {n:'VixSrc',u:'https://vixsrc.to/movie/@@ID@@'},
-    {n:'VidSrcTo',u:'https://vidsrc.to/embed/movie/@@ID@@'}
-];
-
-var tvProviders=[
-    {n:'VidSrc',u:'https://vidsrc.fyi/embed/tv/@@ID@@/@@S@@/@@E@@'},
-    {n:'VidPop',u:'https://www.vidpop.xyz/embed/?id=@@ID@@&season=@@S@@&episode=@@E@@'},
-    {n:'VidSrcRU',u:'https://vidsrc.ru/embed/tv/@@ID@@'},
-    {n:'Cinextream',u:'https://cinextream.net/api/embed/tv/@@ID@@/@@S@@/@@E@@'},
-    {n:'VixSrc',u:'https://vixsrc.to/tv/@@ID@@/@@S@@/@@E@@'},
-    {n:'VidAPI',u:'https://vaplayer.ru/embed/tv/@@ID@@/@@S@@/@@E@@'},
-    {n:'VidSrcTo',u:'https://vidsrc.to/embed/tv/@@ID@@'}
-];
-
-var providers=(type==='tv')?tvProviders:movieProviders;
-var cur=parseInt(qs('p')||'0');
-
-function render(){
-  var m=document.getElementById('main');
-  if(!providers||providers.length===0){m.innerHTML='<div class="err">No providers available.</div>';return;}
-  var h='<div class="picker"><p>Select a source. Use remote ▲▼ to move, OK to confirm.</p>';
-  for(var i=0;i<providers.length;i++){
-    var p=providers[i];
-    var url=p.u.replace('@@ID@@',tmdb);
-    if(type==='tv')url=url.replace('@@S@@',qs('season')||'1').replace('@@E@@',qs('episode')||'1');
-    var c=(i===cur)?'on':'';
-    h+='<a href="'+url+'" class="'+c+'">'+p.n+'</a>';
-  }
-  var nxt=providers[(cur+1)%providers.length];
-  var nxtu=nxt.u.replace('@@ID@@',tmdb);
-  if(type==='tv')nxtu=nxtu.replace('@@S@@',qs('season')||'1').replace('@@E@@',qs('episode')||'1');
-  h+='<a href="'+nxtu+'" class="skip">Skip to next</a>';
-  h+='</div>';
-  m.innerHTML=h;
-}
-render();
+(function(){
+  var r=location.search.match(/[?&]tmdb=([^&]*)/);
+  var tmdb=(r&&r[1])||'278';
+  var u='https://vaplayer.ru/embed/movie/'+tmdb+'?autoplay=1';
+  document.getElementById('f').src=u;
+})();
 </script>
 </body>
 </html>
