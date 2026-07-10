@@ -48,10 +48,10 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hid
 {key:'vidzee',n:'Vidzee',m:'https://player.vidzee.wtf/embed/movie/'+t+'',tv:'https://player.vidzee.wtf/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidsuper',n:'VidSuper',m:'https://vidsuper.net/movie/'+t+'',tv:'https://vidsuper.net/tv/'+t+'/'+ss+'/'+se+''},
 {key:'strigil',n:'Strigil',m:'https://strigil.cc/embed/movie/'+t+'?embedKey=key_c90081fa77254eb5',tv:'https://strigil.cc/embed/tv/'+t+'/'+ss+'/'+se+'?embedKey=key_c90081fa77254eb5'},
-{key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
-{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id='+t+'&tmdb=1',tv:'https://multiembed.mov/?video_id='+t+'&tmdb=1&s='+ss+'&e='+se+''},
-{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''}
+{key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
+{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id='+t+'&tmdb=1',tv:'https://multiembed.mov/?video_id='+t+'&tmdb=1&s='+ss+'&e='+se+''}
 ];
  function idx(key){for(var j=0;j<providers.length;j++){if(providers[j].key===key)return j;}return -1;}
  function pby(key){var i=idx(key);return i>=0?providers[i]:null;}
