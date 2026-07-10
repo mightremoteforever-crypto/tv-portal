@@ -41,13 +41,13 @@ var loaded=false,retries=0;
 function setStatus(msg,show){if(!st)return;st.textContent=msg||'';st.style.display=show?'block':'none';}
 var providers=[
 {key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
-{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
-{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
+{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id='+t+'&tmdb=1',tv:'https://multiembed.mov/?video_id='+t+'&tmdb=1&s='+ss+'&e='+se+''},
+{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
 {key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+'?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+'/'+ss+'/'+se+'?autoplay=1'},
-{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+'',tv:'https://vidcore.org/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidzee',n:'VidZee',m:'https://player.vidzee.wtf/v2/embed/movie/'+t+'',tv:'https://player.vidzee.wtf/v2/embed/tv/'+t+'/'+ss+'/'+se+''}
+{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
+{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+'',tv:'https://vidcore.org/embed/tv/'+t+'/'+ss+'/'+se+''}
 ];
 var saved=null;
 try{saved=localStorage.getItem('yd-player');}catch(e){}
