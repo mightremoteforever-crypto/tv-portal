@@ -15,7 +15,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hid
 #vol{position:fixed;bottom:16px;right:16px;z-index:9997;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:8px 14px;font-size:13px;cursor:pointer;border-radius:6px;display:none}
 #s{position:fixed;top:10px;right:10px;z-index:9997;max-height:60vh;overflow-y:auto}
 #s button{display:block;width:100%;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;font-size:10px;cursor:pointer;text-align:left;margin-bottom:4px}
-#s button.a{border-color:#16a085;color:#16a085;font-weight:700}
+#s button.a{border-color:#2BA8B8;color:#2BA8B8;font-weight:700}
 #st{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9996;color:#fff;font:600 17px/1.5 Arial,sans-serif;text-align:center;text-shadow:0 1px 4px #000;pointer-events:none;display:none;padding:0 20px}
 </style>
 </head><body>
@@ -40,14 +40,22 @@ var loaded=false,retries=0;
 
 function setStatus(msg,show){if(!st)return;st.textContent=msg||'';st.style.display=show?'block':'none';}
 var providers=[
+{key:'videasy',n:'VidEasy',m:'https://player.videasy.net/movie/'+t+'',tv:'https://player.videasy.net/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidup',n:'VidUp',m:'https://vidup.to/movie/'+t+'',tv:'https://vidup.to/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidcore7',n:'VidCore7',m:'https://vidcore.net/movie/'+t+'',tv:'https://vidcore.net/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidplus',n:'VidPlus',m:'https://player.vidplus.to/embed/movie/'+t+'',tv:'https://player.vidplus.to/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrcmov',n:'VidSrcMov',m:'https://vidsrc.mov/embed/movie/'+t+'',tv:'https://vidsrc.mov/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'adrock',n:'AdRock',m:'https://vidrock.net/movie/'+t+'',tv:'https://vidrock.net/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidnest',n:'VidNest',m:'https://vidnest.fun/movie/'+t+'',tv:'https://vidnest.fun/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidlink',n:'VidLink',m:'https://vidlink.pro/movie/'+t+'',tv:'https://vidlink.pro/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidify',n:'Vidify',m:'https://player.vidify.top/embed/movie/'+t+'',tv:'https://player.vidify.top/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidzee',n:'Vidzee',m:'https://player.vidzee.wtf/embed/movie/'+t+'',tv:'https://player.vidzee.wtf/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsuper',n:'VidSuper',m:'https://vidsuper.net/movie/'+t+'',tv:'https://vidsuper.net/tv/'+t+'/'+ss+'/'+se+''},
+{key:'strigil',n:'Strigil',m:'https://strigil.cc/embed/movie/'+t+'?embedKey=key_c90081fa77254eb5',tv:'https://strigil.cc/embed/tv/'+t+'/'+ss+'/'+se+'?embedKey=key_c90081fa77254eb5'},
 {key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
 {key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id='+t+'&tmdb=1',tv:'https://multiembed.mov/?video_id='+t+'&tmdb=1&s='+ss+'&e='+se+''},
-{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
-{key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+'?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+'/'+ss+'/'+se+'?autoplay=1'},
-{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
-{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+'',tv:'https://vidcore.org/embed/tv/'+t+'/'+ss+'/'+se+''}
+{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''}
 ];
 var saved=null;
 try{saved=localStorage.getItem('yd-player');}catch(e){}
