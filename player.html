@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-<meta http-equiv="Content-Security-Policy" content="frame-src https:; script-src 'self' 'unsafe-inline'; object-src 'none'">
 <title>YD Player</title>
 <style>
 *,*:before,*:after{{box-sizing:border-box}}
@@ -20,7 +19,7 @@ html,body{{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hi
 </head><body>
 <div id="d"><div class="ok">YD Player v6.0</div></div>
 <div id="dt" title="Double-click to toggle debug log">DBG</div>
-<iframe id="v" title="Video Player" allowfullscreen></iframe>
+<iframe id="v" title="Video Player" allow="encrypted-media; fullscreen *; autoplay *; picture-in-picture *" allowfullscreen></iframe>
 <div id="o"><div><div class="t">Autoplay blocked</div><button class="b" onclick="startPlay()">Start playback</button></div></div>
 <div id="s"></div>
 <script>
@@ -34,18 +33,14 @@ var v=document.getElementById('v');
 var o=document.getElementById('o');
 var loaded=false,retries=0;
 var providers=[
-{key:'videasy',n:'VidEasy',m:'https://player.videasy.net/movie/'+t+'',tv:'https://player.videasy.net/tv/'+t+'/'+ss+'/'+se+'?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&overlay=true&color=16A085'},
-{key:'vidfast',n:'VidUp',m:'https://vidup.to/movie/'+t+'',tv:'https://vidup.to/tv/'+t+'/'+ss+'/'+se+'?autoPlay=true&theme=16A085&nextButton=true&autoNext=true&sub=en'},
-{key:'vidcore',n:'VidCore',m:'https://vidcore.net/movie/'+t+'',tv:'https://vidcore.net/tv/'+t+'/'+ss+'/'+se+'?autoPlay=true&sub=en'},
-{key:'vidplus',n:'VidPlus',m:'https://player.vidplus.to/embed/movie/'+t+'',tv:'https://player.vidplus.to/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidsrc0',n:'Vidsrc0',m:'https://vidsrc.mov/embed/movie/'+t+'',tv:'https://vidsrc.mov/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidrock',n:'AdRock',m:'https://vidrock.net/movie/'+t+'',tv:'https://vidrock.net/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidnest',n:'VidNest',m:'https://vidnest.fun/movie/'+t+'',tv:'https://vidnest.fun/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidlink',n:'VidLink',m:'https://vidlink.pro/movie/'+t+'',tv:'https://vidlink.pro/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidify',n:'Vidify',m:'https://player.vidify.top/embed/movie/'+t+'',tv:'https://player.vidify.top/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidzee',n:'Vidzee',m:'https://player.vidzee.wtf/embed/movie/'+t+'',tv:'https://player.vidzee.wtf/embed/tv/'+t+'/'+ss+'/'+se+''},
-{key:'vidsuper',n:'VidSuper',m:'https://vidsuper.net/movie/'+t+'',tv:'https://vidsuper.net/tv/'+t+'/'+ss+'/'+se+'?nextEpisode=true&autoplayNextEpisode=true&episodeSelector=true&overlay=true&skip_intro=true&color=16A085'},
-{key:'strigil',n:'Strigil',m:'https://strigil.cc/embed/movie/'+t+'?embedKey=key_c90081fa77254eb5&autoPlay=true&theme=16A085&sub=en',tv:'https://strigil.cc/embed/tv/'+t+'/'+ss+'/'+se+'?embedKey=key_c90081fa77254eb5&autoPlay=true&theme=16A085&sub=en'}
+{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+''',tv:'https://www.vidpop.xyz/embed/?id='+t+''&season='+ss+''&episode='+se+'''},
+{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+''',tv:'https://vidsrc.ru/embed/tv/'+t+'''},
+{key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+''',tv:'https://cinextream.net/api/embed/tv/'+t+''/'+ss+''/'+se+'''},
+{key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+''?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+''/'+ss+''/'+se+''?autoplay=1'},
+{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+''',tv:'https://vidsrc.fyi/embed/tv/'+t+''/'+ss+''/'+se+'''},
+{key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+''',tv:'https://vidsrc.to/embed/tv/'+t+'''},
+{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+''',tv:'https://vidcore.org/embed/tv/'+t+''/'+ss+''/'+se+'''},
+{key:'vidzee',n:'VidZee',m:'https://player.vidzee.wtf/v2/embed/movie/'+t+''',tv:'https://player.vidzee.wtf/v2/embed/tv/'+t+''/'+ss+''/'+se+'''}
 ];
 var saved=null;
 try{{saved=localStorage.getItem('yd-player');}}catch(e){{}}
