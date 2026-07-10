@@ -16,9 +16,11 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hid
 #s{position:fixed;top:10px;right:10px;z-index:9997;max-height:60vh;overflow-y:auto}
 #s button{display:block;width:100%;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;font-size:10px;cursor:pointer;text-align:left;margin-bottom:4px}
 #s button.a{border-color:#16a085;color:#16a085;font-weight:700}
+#st{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9996;color:#fff;font:600 17px/1.5 Arial,sans-serif;text-align:center;text-shadow:0 1px 4px #000;pointer-events:none;display:none;padding:0 20px}
 </style>
 </head><body>
 <div id="d"><div class="ok">YD Player v6.0</div></div>
+<div id="st"></div>
 <div id="dt" title="Double-click to toggle debug log">DBG</div>
 <button id="vol" title="Toggle mute/unmute">VOL</button>
 <iframe id="v" title="Video Player" allow="encrypted-media; fullscreen *; autoplay *; picture-in-picture *" allowfullscreen></iframe>
@@ -33,13 +35,16 @@ var isTV=!!(ss&&se);
 var log=document.getElementById('d');
 var v=document.getElementById('v');
 var o=document.getElementById('o');
+var st=document.getElementById('st');
 var loaded=false,retries=0;
+
+function setStatus(msg,show){if(!st)return;st.textContent=msg||'';st.style.display=show?'block':'none';}
 var providers=[
-{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
-{key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
 {key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
 {key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
+{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
 {key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+'?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+'/'+ss+'/'+se+'?autoplay=1'},
 {key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+'',tv:'https://vidcore.org/embed/tv/'+t+'/'+ss+'/'+se+''},
 {key:'vidzee',n:'VidZee',m:'https://player.vidzee.wtf/v2/embed/movie/'+t+'',tv:'https://player.vidzee.wtf/v2/embed/tv/'+t+'/'+ss+'/'+se+''}
@@ -57,25 +62,25 @@ function L(m,c){var e=document.createElement('div');if(c)e.className=c;var d=new
 function url(p){return isTV?(p.tv||p.m):p.m;}
 
 function load(key){if(key)cur=key;try{localStorage.setItem('yd-player',cur);}catch(e){}
- loaded=false;retries=0;o.style.display='none';
+ loaded=false;retries=0;o.style.display='none';setStatus('Loading '+pby(cur).n+' ...',true);
   try{v.src='about:blank';}catch(e){}
   var p=pby(cur);
-  if(!p){L('No provider','err');return;}
+  if(!p){L('No provider','err');setStatus('No provider',true);return;}
   L('Trying '+p.n+'...');
   v.src=url(p);
   renderButtons();
   for(var j=0;j<timers.length;j++){clearTimeout(timers[j]);}timers=[];
-  timers.push(setTimeout(function(){if(!loaded){L('Timeout '+p.n,'err');next();}else L('Loaded '+p.n+' (stream may take time)','ok');},15000));
+  timers.push(setTimeout(function(){if(!loaded){L('Timeout '+p.n,'err');setStatus(p.n+': timeout',true);next();}else L('Loaded '+p.n+' (stream may take time)','ok');},15000));
 }
 
-function next(){var ci=idx(cur);if(ci>=0&&ci<providers.length-1){load(providers[ci+1].key);}else{L('ALL FAILED - restarting','err');cur=providers[0]?providers[0].key:null;setTimeout(function(){load();},2000);}}
+function next(){var ci=idx(cur);if(ci>=0&&ci<providers.length-1){L('Next: '+providers[ci+1].n,'skip');load(providers[ci+1].key);}else{L('ALL FAILED - restarting','err');setStatus('All providers failed on this TV browser',true);cur=providers[0]?providers[0].key:null;setTimeout(function(){load();},2000);}}
 
 function startPlay(){retries=0;o.style.display='none';attemptPlay();}
 
 function attemptPlay(){if(retries>=4)return;try{v.contentWindow.postMessage({command:'muteAndPlay'},'*');}catch(e){}retries++;if(retries<4){timers.push(setTimeout(attemptPlay,600));}}
 
-v.onload=function(){loaded=true;for(var j=0;j<timers.length;j++){clearTimeout(timers[j]);}timers=[];L('Page loaded: '+cur,'ok');o.style.display='none';attemptPlay();};
-v.onerror=function(){L('Error: '+cur,'err');next();};
+v.onload=function(){loaded=true;for(var j=0;j<timers.length;j++){clearTimeout(timers[j]);}timers=[];L('Page loaded: '+cur,'ok');o.style.display='none';setStatus('',false);attemptPlay();};
+v.onerror=function(){L('Error: '+cur,'err');setStatus(cur+': error',true);next();};
 
 window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d!=='object')return;
  if(d.type==='PLAYER_EVENT'&&d.data&&d.data.event){}
