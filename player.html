@@ -3,19 +3,19 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 <title>YD Player</title>
 <style>
-*,*:before,*:after{{box-sizing:border-box}}
-html,body{{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hidden}}
-#v{{width:100%;height:100%;border:none;display:block;position:absolute;top:0;left:0}}
-#o{{position:fixed;top:0;left:0;right:0;bottom:0;display:none;background:rgba(0,0,0,0.85);z-index:9998;cursor:pointer;align-items:center;justify-content:center;flex-direction:column}}
-#o .b{{background:#fff;color:#000;font:600 18px/1 Arial,sans-serif;padding:14px 28px;border-radius:999px;border:none;cursor:pointer;min-width:160px}}
-#o .t{{color:#fff;font:400 16px/1.4 Arial,sans-serif;margin-bottom:12px;text-align:center}}
-#d{{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#0f0;font-size:11px;font-family:monospace;padding:6px 10px;z-index:9999;max-height:40vh;overflow-y:auto;display:none;pointer-events:none}}
-#d .err{{color:#f44}} #d .ok{{color:#0f0}} #d .skip{{color:#fa0}}
-#dt{{position:fixed;top:4px;left:4px;z-index:10000;background:rgba(0,0,0,0.5);color:#0f0;font:11px/1 monospace;padding:3px 6px;border-radius:3px;cursor:pointer;border:1px solid #0f0;display:none}}
-#vol{{position:fixed;bottom:16px;right:16px;z-index:9997;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:8px 14px;font-size:13px;cursor:pointer;border-radius:6px;display:none}}
-#s{{position:fixed;top:10px;right:10px;z-index:9997;max-height:60vh;overflow-y:auto}}
-#s button{{display:block;width:100%;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;font-size:10px;cursor:pointer;text-align:left;margin-bottom:4px}}
-#s button.a{{border-color:#16a085;color:#16a085;font-weight:700}}
+*,*:before,*:after{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hidden}
+#v{width:100%;height:100%;border:none;display:block;position:absolute;top:0;left:0}
+#o{position:fixed;top:0;left:0;right:0;bottom:0;display:none;background:rgba(0,0,0,0.85);z-index:9998;cursor:pointer;align-items:center;justify-content:center;flex-direction:column}
+#o .b{background:#fff;color:#000;font:600 18px/1 Arial,sans-serif;padding:14px 28px;border-radius:999px;border:none;cursor:pointer;min-width:160px}
+#o .t{color:#fff;font:400 16px/1.4 Arial,sans-serif;margin-bottom:12px;text-align:center}
+#d{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#0f0;font-size:11px;font-family:monospace;padding:6px 10px;z-index:9999;max-height:40vh;overflow-y:auto;display:none;pointer-events:none}
+#d .err{color:#f44} #d .ok{color:#0f0} #d .skip{color:#fa0}
+#dt{position:fixed;top:4px;left:4px;z-index:10000;background:rgba(0,0,0,0.5);color:#0f0;font:11px/1 monospace;padding:3px 6px;border-radius:3px;cursor:pointer;border:1px solid #0f0;display:none}
+#vol{position:fixed;bottom:16px;right:16px;z-index:9997;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:8px 14px;font-size:13px;cursor:pointer;border-radius:6px;display:none}
+#s{position:fixed;top:10px;right:10px;z-index:9997;max-height:60vh;overflow-y:auto}
+#s button{display:block;width:100%;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;font-size:10px;cursor:pointer;text-align:left;margin-bottom:4px}
+#s button.a{border-color:#16a085;color:#16a085;font-weight:700}
 </style>
 </head><body>
 <div id="d"><div class="ok">YD Player v6.0</div></div>
@@ -35,67 +35,66 @@ var v=document.getElementById('v');
 var o=document.getElementById('o');
 var loaded=false,retries=0;
 var providers=[
-{key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+''',tv:'https://cinextream.net/api/embed/tv/'+t+''/'+ss+''/'+se+'''},
-{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+''',tv:'https://www.vidpop.xyz/embed/?id='+t+''&season='+ss+''&episode='+se+'''},
-{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+''',tv:'https://vidsrc.fyi/embed/tv/'+t+''/'+ss+''/'+se+'''},
-{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+''',tv:'https://vidsrc.ru/embed/tv/'+t+'''},
-{key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+''',tv:'https://vidsrc.to/embed/tv/'+t+'''},
-{key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+''?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+''/'+ss+''/'+se+''?autoplay=1'},
-{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+''',tv:'https://vidcore.org/embed/tv/'+t+''/'+ss+''/'+se+'''},
-{key:'vidzee',n:'VidZee',m:'https://player.vidzee.wtf/v2/embed/movie/'+t+''',tv:'https://player.vidzee.wtf/v2/embed/tv/'+t+''/'+ss+''/'+se+'''}
+{key:'vidpop',n:'VidPop',m:'https://www.vidpop.xyz/embed/?id='+t+'',tv:'https://www.vidpop.xyz/embed/?id='+t+'&season='+ss+'&episode='+se+''},
+{key:'vidsrcru',n:'VidSrcRU',m:'https://vidsrc.ru/embed/movie/'+t+'',tv:'https://vidsrc.ru/embed/tv/'+t+''},
+{key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/'+t+'',tv:'https://cinextream.net/api/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrc',n:'VidSrc',m:'https://vidsrc.fyi/embed/movie/'+t+'',tv:'https://vidsrc.fyi/embed/tv/'+t+'/'+ss+'/'+se+''},
+{key:'vidsrcto',n:'VidSrcTo',m:'https://vidsrc.to/embed/movie/'+t+'',tv:'https://vidsrc.to/embed/tv/'+t+''},
+{key:'vidapi',n:'VidAPI',m:'https://vaplayer.ru/embed/movie/'+t+'?autoplay=1',tv:'https://vaplayer.ru/embed/tv/'+t+'/'+ss+'/'+se+'?autoplay=1'},
+{key:'vidcore',n:'VidCore',m:'https://vidcore.org/embed/movie/'+t+'',tv:'https://vidcore.org/embed/tv/'+t+'/'+ss+'/'+se+''}
 ];
 var saved=null;
-try{{saved=localStorage.getItem('yd-player');}}catch(e){{}}
+try{saved=localStorage.getItem('yd-player');}catch(e){}
 var cur=saved;if(!cur)cur=providers[0]?providers[0].key:null;
 var timers=[];
 
-function idx(key){{for(var j=0;j<providers.length;j++){{if(providers[j].key===key)return j;}}return -1;}}
-function pby(key){{for(var j=0;j<providers.length;j++){{if(providers[j].key===key)return providers[j];}}return null;}}
+function idx(key){for(var j=0;j<providers.length;j++){if(providers[j].key===key)return j;}return -1;}
+function pby(key){for(var j=0;j<providers.length;j++){if(providers[j].key===key)return providers[j];}return null;}
 
-function L(m,c){{var e=document.createElement('div');if(c)e.className=c;var d=new Date();e.textContent=d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' '+m;log.insertBefore(e,log.firstChild||null);}}
+function L(m,c){var e=document.createElement('div');if(c)e.className=c;var d=new Date();e.textContent=d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' '+m;log.insertBefore(e,log.firstChild||null);}
 
-function url(p){{return isTV?(p.tv||p.m):p.m;}}
+function url(p){return isTV?(p.tv||p.m):p.m;}
 
-function load(key){{if(key)cur=key;try{{localStorage.setItem('yd-player',cur);}}catch(e){{}}
+function load(key){if(key)cur=key;try{localStorage.setItem('yd-player',cur);}catch(e){}
  loaded=false;retries=0;o.style.display='none';
-  try{{v.src='about:blank';}}catch(e){{}}
+  try{v.src='about:blank';}catch(e){}
   var p=pby(cur);
-  if(!p){{L('No provider','err');return;}}
+  if(!p){L('No provider','err');return;}
   L('Trying '+p.n+'...');
   v.src=url(p);
   renderButtons();
-  for(var j=0;j<timers.length;j++){{clearTimeout(timers[j]);}}timers=[];
-  timers.push(setTimeout(function(){{if(!loaded){{L('Timeout '+p.n,'err');next();}}else L('Loaded '+p.n+' (stream may take time)','ok');}},15000));
-}}
+  for(var j=0;j<timers.length;j++){clearTimeout(timers[j]);}timers=[];
+  timers.push(setTimeout(function(){if(!loaded){L('Timeout '+p.n,'err');next();}else L('Loaded '+p.n+' (stream may take time)','ok');},15000));
+}
 
-function next(){{var ci=idx(cur);if(ci>=0&&ci<providers.length-1){{load(providers[ci+1].key);}}else{{L('ALL FAILED - restarting','err');cur=providers[0]?providers[0].key:null;setTimeout(function(){{load();}},2000);}}}}
+function next(){var ci=idx(cur);if(ci>=0&&ci<providers.length-1){load(providers[ci+1].key);}else{L('ALL FAILED - restarting','err');cur=providers[0]?providers[0].key:null;setTimeout(function(){load();},2000);}}
 
-function startPlay(){{retries=0;o.style.display='none';attemptPlay();}}
+function startPlay(){retries=0;o.style.display='none';attemptPlay();}
 
-function attemptPlay(){{if(retries>=4)return;try{{v.contentWindow.postMessage({{command:'muteAndPlay'}},'*');}}catch(e){{}}retries++;if(retries<4){{timers.push(setTimeout(attemptPlay,600));}}}}
+function attemptPlay(){if(retries>=4)return;try{v.contentWindow.postMessage({command:'muteAndPlay'},'*');}catch(e){}retries++;if(retries<4){timers.push(setTimeout(attemptPlay,600));}}
 
-v.onload=function(){{loaded=true;for(var j=0;j<timers.length;j++){{clearTimeout(timers[j]);}}timers=[];L('Page loaded: '+cur,'ok');o.style.display='none';attemptPlay();}};
-v.onerror=function(){{L('Error: '+cur,'err');next();}};
+v.onload=function(){loaded=true;for(var j=0;j<timers.length;j++){clearTimeout(timers[j]);}timers=[];L('Page loaded: '+cur,'ok');o.style.display='none';attemptPlay();};
+v.onerror=function(){L('Error: '+cur,'err');next();};
 
-window.addEventListener('message',function(e){{var d=e.data;if(!d||typeof d!=='object')return;
- if(d.type==='PLAYER_EVENT'&&d.data&&d.data.event){{}}
- if(d.type==='MEDIA_DATA'&&d.data){{}}
- if(/fullscreen/i.test((d.type||'')+'|'+(d.name||'')+'|'+(d.command||''))){{var el=v;if(document.fullscreenElement||document.webkitFullscreenElement){{if(document.exitFullscreen)document.exitFullscreen();else if(document.webkitExitFullscreen)document.webkitExitFullscreen();}}else{{if(el.requestFullscreen)el.requestFullscreen();else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();}}}}
-}});
+window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d!=='object')return;
+ if(d.type==='PLAYER_EVENT'&&d.data&&d.data.event){}
+ if(d.type==='MEDIA_DATA'&&d.data){}
+ if(/fullscreen/i.test((d.type||'')+'|'+(d.name||'')+'|'+(d.command||''))){var el=v;if(document.fullscreenElement||document.webkitFullscreenElement){if(document.exitFullscreen)document.exitFullscreen();else if(document.webkitExitFullscreen)document.webkitExitFullscreen();}else{if(el.requestFullscreen)el.requestFullscreen();else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();}}
+});
 
-function renderButtons(){{var s=document.getElementById('s');s.innerHTML='';
- for(var j=0;j<providers.length;j++){{var p=providers[j];var b=document.createElement('button');b.textContent=p.n+(p.key===cur?' ▸':'');if(p.key===cur)b.className='a';
-  b.onclick=function(){{if(p.key!==cur)load(p.key);}};s.appendChild(b);}}}}
+function renderButtons(){var s=document.getElementById('s');s.innerHTML='';
+ for(var j=0;j<providers.length;j++){var p=providers[j];var b=document.createElement('button');b.textContent=p.n+(p.key===cur?' ▸':'');if(p.key===cur)b.className='a';
+  b.onclick=function(){if(p.key!==cur)load(p.key);};s.appendChild(b);}}
 
 var dbg=document.getElementById('d');
 var dt=document.getElementById('dt');
-function togdbg(){{if(!dbg||!dt)return;var v=dbg.style.display==='none';dbg.style.display=v?'block':'none';dt.style.display=v?'none':'block';dt.textContent=v?'DBG':'DBG ON';}}
-if(dt){{dt.style.display='block';dt.onclick=togdbg;}}
-if(dbg){{dbg.ondblclick=togdbg;document.getElementById('d').style.display='none';}}
+function togdbg(){if(!dbg||!dt)return;var v=dbg.style.display==='none';dbg.style.display=v?'block':'none';dt.style.display=v?'none':'block';dt.textContent=v?'DBG':'DBG ON';}
+if(dt){dt.style.display='block';dt.onclick=togdbg;}
+if(dbg){dbg.ondblclick=togdbg;document.getElementById('d').style.display='none';}
 
 var vol=document.getElementById('vol');
-if(vol){{vol.style.display='block';vol.onclick=function(){try{{v.contentWindow.postMessage({{command:'muteAndPlay'}},'*');}}catch(e){{}}L('Volume toggle sent','ok');}}}}
+if(vol){vol.style.display='block';vol.onclick=function(){try{v.contentWindow.postMessage({command:'muteAndPlay'},'*');}catch(e){}L('Volume toggle sent','ok');}}
 
 renderButtons();
 load();
-}})();</body></html>
+})();</body></html>
