@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta http-equiv="Content-Security-Policy" content="frame-src https:; script-src 'self' 'unsafe-inline'; object-src 'none'">
 <title>YD Player</title>
 <style>
 *,*:before,*:after{{box-sizing:border-box}}
@@ -9,15 +10,17 @@ html,body{{width:100%;height:100%;margin:0;padding:0;background:#000;overflow:hi
 #o{{position:fixed;top:0;left:0;right:0;bottom:0;display:none;background:rgba(0,0,0,0.85);z-index:9998;cursor:pointer}}
 #o .b{{background:#fff;color:#000;font:600 14px/1 Arial,sans-serif;padding:10px 20px;border-radius:999px;border:none;cursor:pointer}}
 #o .t{{color:#fff;font:400 13px/1.4 Arial,sans-serif;margin-bottom:10px;text-align:center}}
-#d{{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#0f0;font-size:11px;font-family:monospace;padding:6px 10px;z-index:9999;max-height:40vh;overflow-y:auto;pointer-events:none}}
+#d{{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,0.85);color:#0f0;font-size:11px;font-family:monospace;padding:6px 10px;z-index:9999;max-height:40vh;overflow-y:auto;display:none;pointer-events:none}}
 #d .err{{color:#f44}} #d .ok{{color:#0f0}} #d .skip{{color:#fa0}}
+#dt{{position:fixed;top:4px;left:4px;z-index:10000;background:rgba(0,0,0,0.5);color:#0f0;font:11px/1 monospace;padding:3px 6px;border-radius:3px;cursor:pointer;border:1px solid #0f0;display:none}}
 #s{{position:fixed;top:10px;right:10px;z-index:9997;max-height:60vh;overflow-y:auto}}
 #s button{{display:block;width:100%;background:rgba(0,0,0,0.7);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;font-size:10px;cursor:pointer;text-align:left;margin-bottom:4px}}
 #s button.a{{border-color:#16a085;color:#16a085;font-weight:700}}
 </style>
 </head><body>
 <div id="d"><div class="ok">YD Player v6.0</div></div>
-<iframe id="v" allowfullscreen></iframe>
+<div id="dt" title="Double-click to toggle debug log">DBG</div>
+<iframe id="v" title="Video Player" allowfullscreen></iframe>
 <div id="o"><div><div class="t">Autoplay blocked</div><button class="b" onclick="startPlay()">Start playback</button></div></div>
 <div id="s"></div>
 <script>
@@ -86,6 +89,12 @@ window.addEventListener('message',function(e){{var d=e.data;if(!d||typeof d!=='o
 function renderButtons(){{var s=document.getElementById('s');s.innerHTML='';
  for(var j=0;j<providers.length;j++){{var p=providers[j];var b=document.createElement('button');b.textContent=p.n+(p.key===cur?' ▸':'');if(p.key===cur)b.className='a';
   b.onclick=function(){{if(p.key!==cur)load(p.key);}};s.appendChild(b);}}}}
+
+var dbg=document.getElementById('d');
+var dt=document.getElementById('dt');
+function togdbg(){{if(!dbg||!dt)return;var v=dbg.style.display==='none';dbg.style.display=v?'block':'none';dt.style.display=v?'none':'block';dt.textContent=v?'DBG':'DBG ON';}}
+if(dt){{dt.style.display='block';dt.onclick=togdbg;}}
+if(dbg){{dbg.ondblclick=togdbg;document.getElementById('d').style.display='none';}}
 
 renderButtons();
 load();
