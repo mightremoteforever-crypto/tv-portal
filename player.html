@@ -57,7 +57,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 </style>
 </head><body>
  <div id="vignette"></div>
- <div id="brand">⚓ Yacht Daddy <span class="v">v5.5.3</span></div>
+ <div id="brand">⚓ Yacht Daddy <span class="v">v5.5.5</span></div>
  <div id="st"></div>
  <div id="loading"><div class="spin"></div><div class="lt">Setting sail…</div></div>
 <div id="bar">
@@ -83,9 +83,16 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
  <script src="assets/hls.min.js"></script>
 <script>
  (function() {
-  var r=location.search.match(/[?&]tmdb=([^&]*)/),t=(r&&r[1])||'278';
+  // REQUIRE ?tmdb= — without it the provider URL templates build
+  // ".../player.html?tmdb=undefined" and GitHub Pages returns a 404 (the
+  // page shown *behind* the source menu). Redirect to Demo Mode instead.
+  var _tm=location.search.match(/[?&]tmdb=([^&]*)/);
+  if(!(_tm&&_tm[1])){location.replace(location.pathname+'?tmdb=0&demo=1');return;}
+  var r=_tm,t=(r&&r[1])||'278';
   var rs=location.search.match(/[?&]s=([^&]*)/),ss=(rs&&rs[1])||'';
   var re=location.search.match(/[?&]e=([^&]*)/),se=(re&&re[1])||'';
+  var demoM=location.search.match(/[?&]demo=([^&]*)/);
+  var forceDemo=!!(demoM&&demoM[1]);
   var isTV=!!(ss&&se);
   var v=document.getElementById('v');
   var nv=document.getElementById('native');
@@ -113,6 +120,24 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
   var loaded=false,hls=null,mode='embed',timers=[],drawerOpen=false,selIdx=-1;
 
    function setStatus(m,s){if(!st)return;st.textContent=m||'';st.style.display=s?'block':'none';}
+   // Pill (top-centre) shows the active source + its TV-class colour.
+   function setPill(name,cls){
+     if(!pill)return;
+     var t=document.getElementById('pillT');
+     if(t) t.textContent=(name||'Connecting…')+'';
+     pill.className='pill '+(cls||'');
+     pill.dataset.show='1';
+     pill.style.display='flex';
+   }
+   // "Now Playing" overlay (bottom-centre) when a source has connected.
+   function showNowPlaying(name){
+     if(!nowEl)return;
+     var nt=document.getElementById('nowT');
+     if(nt) nt.textContent=name||'';
+     nowEl.classList.add('show');
+     if(pill) pill.dataset.show='1';
+   }
+   function hideNowPlaying(){if(nowEl)nowEl.classList.remove('show');}
    function clearTimers(){for(var j=0;j<timers.length;j++)clearTimeout(timers[j]);timers=[];}
    function hideTap(){if(tap)tap.style.display='none';}
    function stopHls(){if(hls){try{hls.destroy();}catch(e){}hls=null;}}
@@ -139,8 +164,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
      }, watchdogMs()));
    }
 
-  var providers=[[
-{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1',tv:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1&s=\'+ss+\'&e=\'+se+\'',mode:'embed',cls:'works'},
+  var providers=[{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1',tv:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1&s=\'+ss+\'&e=\'+se+\'',mode:'embed',cls:'works'},
 {key:'cinextream',n:'Cinextream',m:'https://cinextream.net/api/embed/movie/\'+t+\'',tv:'https://cinextream.net/api/embed/tv/\'+t+\'/\'+ss+\'/\'+se+\'',mode:'embed',cls:'works'},
 {key:'videasy',n:'VidEasy',m:'https://player.videasy.net/movie/\'+t+\'',tv:'https://player.videasy.net/tv/\'+t+\'/\'+ss+\'/\'+se+\'',mode:'embed',cls:'maybe'},
 {key:'vidup',n:'VidUp',m:'https://vidup.to/movie/\'+t+\'',tv:'https://vidup.to/tv/\'+t+\'/\'+ss+\'/\'+se+\'',mode:'embed',cls:'maybe'},
@@ -157,7 +181,6 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 {key:'vidify',n:'Vidify',m:'https://player.vidify.top/embed/movie/\'+t+\'',tv:'https://player.vidify.top/embed/tv/\'+t+\'/\'+ss+\'/\'+se+\'',mode:'embed',cls:'down'},
 {key:'vidsuper',n:'VidSuper',m:'https://vidsuper.net/movie/\'+t+\'',tv:'https://vidsuper.net/tv/\'+t+\'/\'+ss+\'/\'+se+\'',mode:'embed',cls:'down'},
 {key:'demo',n:'Demo (test)',mode:'direct',cls:'works',src:'https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8'}
-]
 ];
   function idx(k){for(var j=0;j<providers.length;j++){if(providers[j].key===k)return j;}return -1;}
   function pby(k){var i=idx(k);return i>=0?providers[i]:null;}
@@ -165,7 +188,8 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
   function isSkippable(p){return p&&(p.cls==='blocked'||p.cls==='down');}
 
   var saved=null;try{saved=localStorage.getItem('yd-player');}catch(e){}
-  var cur=(saved&&idx(saved)>=0)?saved:(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null));
+  var demoKey=(function(){for(var j=0;j<providers.length;j++){if(providers[j].mode==='direct')return providers[j].key;}return null;})();
+  var cur=(!forceDemo)?((saved&&idx(saved)>=0)?saved:(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null))):(demoKey||'demo');
 
   var btnEls={};
   function buildButtons(){if(!sEl||Object.keys(btnEls).length)return;
@@ -266,11 +290,20 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
     cur=(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null));
     clearTimers();timers.push(setTimeout(load,2000));}
 
-   v.onload=function(){loaded=true;clearTimers();showLoading(false);
+   // Guard: assigning v.src='about:blank' during startup fires onload
+   // synchronously, BEFORE cur is set — dereferencing an undefined provider
+   // and setting v.src='undefined' (-> /undefined 404 behind the menu).
+   // Ignore the initial/blank load; only react once a real source is chosen.
+   v.onload=function(){
+       if(!cur || !pby(cur)) return;
+       var blank = (v.src === 'about:blank' || (v.src||'').indexOf('about:blank')>=0);
+       if(blank) return;
+       loaded=true;clearTimers();showLoading(false);
        var pn=(pby(cur)&&pby(cur).n)||'';
        showNowPlaying(pn);
        if(pill){pill.className='pill '+(pby(cur)?pby(cur).cls:'');}
        setStatus('',false);};
+   v.onerror=function(){try{if(cur)setStatus(cur+': error',true);}catch(e){}};
   v.onerror=function(){setStatus(cur+': error',true);};
 
   window.addEventListener('message',function(e){var d=e.data;if(!d||typeof d!=='object')return;
@@ -305,6 +338,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 
   buildButtons();
   if(!providers.length){setStatus('No video sources configured.',true);showLoading(false);}
+  else if(forceDemo){setStatus('Demo Mode',true);load();}
   else load();
   })();
 </script>
