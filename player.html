@@ -17,25 +17,6 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 #bar{position:fixed;bottom:34px;left:50%;transform:translateX(-50%);z-index:9997;display:none;gap:18px}
 .ctrl{background:rgba(0,0,0,0.72);color:#fff;border:3px solid rgba(255,255,255,0.4);border-radius:18px;min-width:120px;min-height:100px;font:700 30px/1 Arial,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 14px}
 .ctrl:active{background:rgba(43,168,184,0.55)}
-/* top-right controls: NEXT source + SOURCES */
-#topbar{position:fixed;top:20px;right:20px;z-index:9997;display:flex;gap:14px;align-items:center}
-#nextBtn{background:rgba(0,0,0,0.8);color:var(--accent2);border:3px solid var(--accent2);border-radius:14px;font:700 28px/1 Arial,sans-serif;padding:16px 26px;min-height:76px;cursor:pointer;box-shadow:0 0 14px rgba(28,110,164,0.35)}
-#nextBtn:active{background:rgba(28,110,164,0.4)}
-#srcBtn{background:rgba(0,0,0,0.8);color:var(--accent);border:3px solid var(--accent);border-radius:14px;font:700 28px/1 Arial,sans-serif;padding:16px 26px;min-height:76px;cursor:pointer;box-shadow:0 0 14px rgba(43,168,184,0.35)}
-#srcBtn:active{background:rgba(43,168,184,0.4)}
-/* SOURCES drawer — hidden until tapped */
-#drawer{position:fixed;top:0;right:0;height:100%;width:min(48%,780px);background:rgba(7,17,27,0.97);border-left:4px solid #2BA8B8;z-index:9998;transform:translateX(100%);transition:transform .18s ease;display:flex;flex-direction:column;padding:24px}
-#drawer.open{transform:translateX(0)}
-#drawerHead{display:flex;align-items:center;justify-content:space-between;color:#2BA8B8;font:700 36px/1 Arial,sans-serif;margin-bottom:20px}
-#drawerClose{background:rgba(0,0,0,0.6);color:#fff;border:3px solid rgba(255,255,255,0.4);border-radius:12px;font:700 32px/1 Arial,sans-serif;min-width:72px;min-height:72px;cursor:pointer}
-#s{overflow-y:auto;flex:1;padding-right:8px}
-.src{display:flex;align-items:center;gap:20px;width:100%;min-height:80px;background:rgba(0,0,0,0.5);color:#fff;border:3px solid rgba(255,255,255,0.25);border-radius:12px;font:600 28px/1.1 Arial,sans-serif;padding:16px 22px;margin-bottom:16px;cursor:pointer;text-align:left}
-.src.a{border-color:var(--accent);color:var(--accent);background:rgba(43,168,184,0.16);box-shadow:0 0 18px rgba(43,168,184,0.35)}
-.src.sel{box-shadow:0 0 0 5px var(--gold) inset}
-.dot{width:22px;height:22px;border-radius:50%;flex:0 0 auto;display:inline-block}
-.dot-works{background:#39d98a}
-.dot-maybe{background:#E9C46A}
-.dot-blocked,.dot-down{background:#E76F51}
  #tap{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:9996;background:rgba(0,0,0,0.8);color:#fff;font:400 22px/1.3 Arial,sans-serif;padding:14px 22px;border-radius:10px;border:2px solid rgba(255,255,255,0.25);text-align:center;max-width:94%;display:none;pointer-events:none}
  #loading{position:fixed;top:0;left:0;width:100%;height:100%;z-index:9995;background:rgba(0,0,0,0.55);display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px}
  #loading .spin{width:84px;height:84px;border:10px solid rgba(43,168,184,0.25);border-top-color:#2BA8B8;border-radius:50%;animation:spin 1s linear infinite}
@@ -56,7 +37,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 </style>
 </head><body>
  <div id="vignette"></div>
-  <div id="brand">⚓ Yacht Daddy <span class="v">v5.6.15</span></div>
+  <div id="brand">⚓ Yacht Daddy <span class="v">v5.6.16</span></div>
  <div id="st"></div>
  <div id="loading"><div class="spin"></div><div class="lt">Setting sail…</div></div>
 <div id="bar">
@@ -64,14 +45,6 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
   <button id="bPlay" class="ctrl" title="Play / Pause">PLAY/PAUSE</button>
   <button id="bFwd10" class="ctrl" title="Forward 10 seconds">+10s</button>
   <button id="bMute" class="ctrl" title="Mute / Unmute">MUTE</button>
-</div>
-<div id="topbar">
-  <button id="nextBtn" title="Try next source">&#9654; NEXT</button>
-  <button id="srcBtn" title="Choose source">&#9776; SOURCES</button>
-</div>
-<div id="drawer">
-  <div id="drawerHead"><span>SOURCES</span><button id="drawerClose" title="Close">X</button></div>
-  <div id="s"></div>
 </div>
 <video id="native" playsinline></video>
 <iframe id="v" title="Video Player" referrerpolicy="no-referrer" allow="encrypted-media; fullscreen *; autoplay *; picture-in-picture *" allowfullscreen></iframe>
@@ -81,16 +54,12 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
  <script src="assets/hls.min.js"></script>
 <script>
  (function() {
-  // REQUIRE ?tmdb= — without it the provider URL templates build
-  // ".../player.html?tmdb=undefined" and GitHub Pages returns a 404 (the
-  // page shown *behind* the source menu). Redirect to Demo Mode instead.
-  var _tm=location.search.match(/[?&]tmdb=([^&]*)/);
-  if(!(_tm&&_tm[1])){location.replace(location.pathname+'?tmdb=0&demo=1');return;}
-  var r=_tm,t=(r&&r[1])||'278';
-  var rs=location.search.match(/[?&]s=([^&]*)/),ss=(rs&&rs[1])||'';
-  var re=location.search.match(/[?&]e=([^&]*)/),se=(re&&re[1])||'';
-  var demoM=location.search.match(/[?&]demo=([^&]*)/);
-  var forceDemo=!!(demoM&&demoM[1]);
+   // REQUIRE ?tmdb= — without it the provider URL builds
+   // ".../player.html?tmdb=undefined" and GitHub Pages returns a 404.
+   var _tm=location.search.match(/[?&]tmdb=([^&]*)/);
+   var r=_tm,t=(r&&r[1])||'278';
+   var rs=location.search.match(/[?&]s=([^&]*)/),ss=(rs&&rs[1])||'';
+   var re=location.search.match(/[?&]e=([^&]*)/),se=(re&&re[1])||'';
    var isTV=!!(ss&&se);
    var v=document.getElementById('v');
    var nv=document.getElementById('native');
@@ -98,22 +67,16 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
    var loading=document.getElementById('loading');
    var tap=document.getElementById('tap');
    var bar=document.getElementById('bar');
-    var srcBtn=document.getElementById('srcBtn');
-    var nextBtn=document.getElementById('nextBtn');
-    var topbar=document.getElementById('topbar');
-    var drawer=document.getElementById('drawer');
-   var sEl=document.getElementById('s');
    var bPlay=document.getElementById('bPlay');
    var bMute=document.getElementById('bMute');
    var bBack10=document.getElementById('bBack10');
    var bFwd10=document.getElementById('bFwd10');
-   var dClose=document.getElementById('drawerClose');
-    var brand=document.getElementById('brand');
-    var pill=document.getElementById('pill');
-    var pillT=document.getElementById('pillT');
-    var prog=document.getElementById('prog');
-    var retried=false;
-   var loaded=false,hls=null,mode='embed',timers=[],drawerOpen=false,selIdx=-1,hintT=null;
+   var brand=document.getElementById('brand');
+   var pill=document.getElementById('pill');
+   var pillT=document.getElementById('pillT');
+   var prog=document.getElementById('prog');
+   var retried=false;
+   var loaded=false,hls=null,mode='embed',timers=[];
    try{
      if('serviceWorker' in navigator && !/nosw=1/.test(location.search)){
        navigator.serviceWorker.register('player-sw.js').catch(function(){});
@@ -133,39 +96,26 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
    function clearTimers(){for(var j=0;j<timers.length;j++)clearTimeout(timers[j]);timers=[];}
    function hideTap(){if(tap)tap.style.display='none';}
    function stopHls(){if(hls){try{hls.destroy();}catch(e){}hls=null;}}
-   // Top-right NEXT + SOURCES auto-hide after 10s for clean viewing; re-show on any interaction.
-   var controlHideTimer=null;
-   function showControls(){if(topbar)topbar.style.display='flex';if(brand)brand.style.display='flex';if(pill)pill.style.display=(pill.dataset.show==='1'?'flex':'none');if(controlHideTimer)clearTimeout(controlHideTimer);controlHideTimer=setTimeout(hideControls,12000);}
-   function hideControls(){if(controlHideTimer)clearTimeout(controlHideTimer);controlHideTimer=null;if(topbar)topbar.style.display='none';if(brand)brand.style.display='none';if(pill)pill.style.display='none';}
-   // One-time source-discoverability hint (auto-hides / dismisses on any input).
-   function hideHint(){if(hintT){clearTimeout(hintT);hintT=null;}if(tap)tap.style.display='none';}
-    function markHintSeen(){try{localStorage.setItem('yd-hint','1');}catch(e){}}
-    function showHint(){
-      if(forceDemo||!tap)return;
-      var seen=null;try{seen=localStorage.getItem('yd-hint');}catch(e){}
-      if(seen)return;
-      markHintSeen();
-      tap.textContent='Tip: press \u25B6 NEXT or S to switch source';
-     tap.style.display='block';
-     if(hintT)clearTimeout(hintT);
-     hintT=setTimeout(hideHint,7000);
-   }
+    // Controls auto-hide after 10s for clean viewing; re-show on any interaction.
+    var controlHideTimer=null;
+    function showControls(){if(brand)brand.style.display='flex';if(pill)pill.style.display=(pill.dataset.show==='1'?'flex':'none');if(controlHideTimer)clearTimeout(controlHideTimer);controlHideTimer=setTimeout(hideControls,12000);}
+    function hideControls(){if(controlHideTimer)clearTimeout(controlHideTimer);controlHideTimer=null;if(brand)brand.style.display='none';if(pill)pill.style.display='none';}
 
-   // Stall re-prompt: once an embed source has been on screen a while with no
-   // playback signal we can read (the iframe is cross-origin/opaque, so we can't
-   // see buffering inside it), re-surface the controls + a persistent hint. Buffering
-   // is almost always the *embed provider's* upstream, not local bandwidth, so the
-   // only in-app escape is to switch sources. We don't auto-advance blindly (that
-   // would yank a genuinely-playing stream), we just make NEXT unmissable.
-    var STALL_MS=25000, stallTimer=null;
-    function startStallWatch(){
-      clearStall();
-      stallTimer=setTimeout(function(){
-        if(!pby(cur)||pby(cur).mode!=='embed')return;
-        showControls();
-        if(tap){tap.textContent='Still buffering? Press ▶ NEXT or S for sources';tap.style.display='block';}
-      },STALL_MS);
-    }
+    // Stall re-prompt: once an embed source has been on screen a while with no
+    // playback signal we can read (the iframe is cross-origin/opaque, so we can't
+    // see buffering inside it), re-surface the controls + a persistent hint. Buffering
+    // is almost always the *embed provider's* upstream, not local bandwidth. We don't
+    // auto-advance blindly (that would yank a genuinely-playing stream); we just
+    // re-surface the controls so the user can back out and retry.
+     var STALL_MS=25000, stallTimer=null;
+     function startStallWatch(){
+       clearStall();
+       stallTimer=setTimeout(function(){
+         if(!pby(cur)||pby(cur).mode!=='embed')return;
+         showControls();
+         if(tap){tap.textContent='Still buffering? Press BACK and try again';tap.style.display='block';}
+       },STALL_MS);
+     }
     function clearStall(){if(stallTimer){clearTimeout(stallTimer);stallTimer=null;}}
    // Auto-failover watchdog: adaptive timeout (known-good sources get less slack),
    // and one in-place retry for flaky first loads before advancing.
@@ -178,44 +128,21 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
      timers.push(setTimeout(function(){
        if(loading && loading.style.display==='flex'){
          var pn=(pby(cur)&&pby(cur).n)||'';
-         if(!retried){ retried=true; setPill(pn,'connect'); setStatus(pn+': retrying…',true); load(cur); return; }
-         setStatus(pn+': timeout — trying next source',true);
-         next();
+          if(!retried){ retried=true; setPill(pn,'connect'); setStatus(pn+': retrying…',true); load(cur); return; }
+          setStatus(pn+': timeout — press BACK and retry',true);
        }
      }, watchdogMs()));
    }
 
-  var providers=[{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1',tv:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1&s=\'+ss+\'&e=\'+se+\'',mode:'embed',cls:'works'},
-{key:'demo',n:'Demo (test)',mode:'direct',cls:'works',src:'https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8'}
+  var providers=[{key:'multiembed',n:'MultiEmbed',m:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1',tv:'https://multiembed.mov/?video_id=\'+t+\'&tmdb=1&s=\'+ss+\'&e=\'+se+\'',mode:'embed',cls:'works'}
 ];
-  function idx(k){for(var j=0;j<providers.length;j++){if(providers[j].key===k)return j;}return -1;}
-  function pby(k){var i=idx(k);return i>=0?providers[i]:null;}
-  function url(p){var tmpl=isTV?(p.tv||p.m):p.m;if(!tmpl)return '';return tmpl.replace(/'\+t\+'/g,function(){return t;}).replace(/'\+ss\+'/g,function(){return ss;}).replace(/'\+se\+'/g,function(){return se;});}
-  function isSkippable(p){return p&&(p.cls==='blocked'||p.cls==='down');}
+   function idx(k){for(var j=0;j<providers.length;j++){if(providers[j].key===k)return j;}return -1;}
+   function pby(k){var i=idx(k);return i>=0?providers[i]:null;}
+   function url(p){var tmpl=isTV?(p.tv||p.m):p.m;if(!tmpl)return '';return tmpl.replace(/'\+t\+'/g,function(){return t;}).replace(/'\+ss\+'/g,function(){return ss;}).replace(/'\+se\+'/g,function(){return se;});}
 
-  var saved=null;try{saved=localStorage.getItem('yd-player');}catch(e){}
-  var demoKey=(function(){for(var j=0;j<providers.length;j++){if(providers[j].mode==='direct')return providers[j].key;}return null;})();
-  var cur=(!forceDemo)?((saved&&idx(saved)>=0)?saved:(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null))):(demoKey||'demo');
+   var cur=(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null));
 
-  var btnEls={};
-  function buildButtons(){if(!sEl||Object.keys(btnEls).length)return;
-   for(var j=0;j<providers.length;j++){var p=providers[j];var b=document.createElement('button');b.className='src';
-     var dot=document.createElement('span');dot.className='dot dot-'+p.cls;
-     var lab=document.createElement('span');lab.className='lbl';lab.textContent=p.n+(p.mode==='direct'?' •':'');
-     b.appendChild(dot);b.appendChild(lab);
-     b.onclick=(function(k){return function(){closeDrawer();if(k!==cur)load(k);};})(p.key);
-     sEl.appendChild(b);btnEls[p.key]=b;}
-   markActive();}
-  function markActive(){for(var k in btnEls){btnEls[k].className='src'+(k===cur?' a':'');}}
-
-  function openDrawer(){hideHint();drawerOpen=true;drawer.className='open';var i=idx(cur);selIdx=(i>=0)?i:0;highlight();}
-  function closeDrawer(){drawerOpen=false;drawer.className='';}
-  function toggleDrawer(){if(drawerOpen)closeDrawer();else openDrawer();}
-  function highlight(){for(var j=0;j<providers.length;j++){var b=btnEls[providers[j].key];if(b)b.classList.toggle('sel',j===selIdx);}}
-  function moveSel(d){if(!drawerOpen)return;selIdx+=d;if(selIdx<0)selIdx=0;if(selIdx>providers.length-1)selIdx=providers.length-1;highlight();var b=btnEls[providers[selIdx].key];if(b)b.scrollIntoView({block:'nearest'});}
-  function chooseSel(){if(!drawerOpen||selIdx<0)return;var k=providers[selIdx].key;closeDrawer();if(k!==cur)load(k);}
-
-  function capHeight(hls){
+   function capHeight(hls){
     try{var lv=hls.levels||[];var best=-1,bestH=1e9;
       for(var i=0;i<lv.length;i++){var h=lv[i].height||0;if(!h)continue;
         if(h<=720){if(best<0||h>lv[best].height)best=i;}
@@ -268,8 +195,8 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
 
   function load(key){
     if(key)cur=key;try{localStorage.setItem('yd-player',cur);}catch(e){}
-    var p=pby(cur);if(!p){setStatus('No provider',true);return;}
-    markActive();clearTimers();clearStall();stopHls();hideTap();showControls();
+     var p=pby(cur);if(!p){setStatus('No provider',true);return;}
+     clearTimers();clearStall();stopHls();hideTap();showControls();
     if(nv){try{nv.pause();nv.removeAttribute('src');}catch(e){}}
     try{if(v&&v.stop)v.stop();}catch(e){}
     if(p.mode==='direct'){
@@ -285,24 +212,7 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
       v.src=url(p);
       startWatchdog();startStallWatch();
     }
-  }
-
-   function next(){hideHint();var ci=idx(cur);
-    if(ci>=0){var ni=ci+1;while(ni<providers.length&&isSkippable(providers[ni]))ni++;
-      if(ni<providers.length){load(providers[ni].key);return;}}
-    // No further real source. The Demo fallback is a self-test stream, not a
-    // real alternative — bouncing a merely *slow* (buffering) embed to it looks
-    // like a restart loop. So for a single embed source we just keep it and let
-    // the user force a retry with NEXT; only a direct source falls back to Demo.
-    if(cur && pby(cur) && pby(cur).mode!=='direct'){
-      setStatus('Source is slow — press ▶ NEXT to retry',true);
-      return;
     }
-    var demo=null;for(var j=0;j<providers.length;j++){if(providers[j].mode==='direct'){demo=providers[j];break;}}
-    if(demo){setStatus('All sources tried — Demo Mode',true);if(pill){setPill(demo.n,demo.cls);}load(demo.key);return;}
-    setStatus('All providers tried',true);
-    cur=(idx('multiembed')>=0?'multiembed':(providers[0]?providers[0].key:null));
-    clearTimers();timers.push(setTimeout(load,2000));}
 
    // Guard: assigning v.src='about:blank' during startup fires onload
    // synchronously, BEFORE cur is set — dereferencing an undefined provider
@@ -323,40 +233,27 @@ html,body{width:100%;height:100%;margin:0;padding:0;background:#05080c;overflow:
    if(/fullscreen/i.test((d.type||'')+'|'+(d.name||'')+'|'+(d.command||''))){var el=(mode==='direct')?nv:v;if(document.fullscreenElement||document.webkitFullscreenElement){if(document.exitFullscreen)document.exitFullscreen();else if(document.webkitExitFullscreen)document.webkitExitFullscreen();}else{if(el.requestFullscreen)el.requestFullscreen();else if(el.webkitRequestFullscreen)el.webkitRequestFullscreen();}}
   });
 
-  if(bPlay)bPlay.onclick=function(){if(nv.paused)nv.play().catch(function(){});else nv.pause();};
-  if(bMute)bMute.onclick=function(){nv.muted=!nv.muted;bMute.textContent=nv.muted?'\uD83D\uDD07':'\uD83D\uDD0A';};
-  if(bBack10)bBack10.onclick=function(){nv.currentTime=Math.max(0,(nv.currentTime||0)-10);};
-  if(bFwd10)bFwd10.onclick=function(){nv.currentTime=(nv.currentTime||0)+10;};
-  if(srcBtn)srcBtn.onclick=toggleDrawer;
-  if(nextBtn)nextBtn.onclick=next;
-   if(dClose)dClose.onclick=closeDrawer;
+   if(bPlay)bPlay.onclick=function(){if(nv.paused)nv.play().catch(function(){});else nv.pause();};
+   if(bMute)bMute.onclick=function(){nv.muted=!nv.muted;bMute.textContent=nv.muted?'\uD83D\uDD07':'\uD83D\uDD0A';};
+   if(bBack10)bBack10.onclick=function(){nv.currentTime=Math.max(0,(nv.currentTime||0)-10);};
+   if(bFwd10)bFwd10.onclick=function(){nv.currentTime=(nv.currentTime||0)+10;};
 
-    document.addEventListener('keydown',function(e){showControls();hideHint();hideTap();markHintSeen();
-      if(drawerOpen){
-       if(e.key==='ArrowDown'){e.preventDefault();moveSel(1);}
-       else if(e.key==='ArrowUp'){e.preventDefault();moveSel(-1);}
-       else if(e.key==='Enter'){e.preventDefault();chooseSel();}
-       else if(e.key==='Escape'){e.preventDefault();closeDrawer();}
-       return;
-     }
-     if(e.key==='s'||e.key==='S'){toggleDrawer();}
-     else if(mode==='direct'){
-       if(e.key===' '){e.preventDefault();if(nv.paused)nv.play().catch(function(){});else nv.pause();}
-       else if(e.key==='m'||e.key==='M'){nv.muted=!nv.muted;}
-       else if(e.key==='ArrowLeft'){e.preventDefault();nv.currentTime=Math.max(0,(nv.currentTime||0)-10);}
-       else if(e.key==='ArrowRight'){e.preventDefault();nv.currentTime=(nv.currentTime||0)+10;}
-       else if(e.key==='ArrowUp'){e.preventDefault();nv.volume=Math.min(1,(nv.volume||0)+0.1);}
-       else if(e.key==='ArrowDown'){e.preventDefault();nv.volume=Math.max(0,(nv.volume||0)-0.1);}
-     }
-   });
-    // Reveal NEXT/SOURCES on any pointer movement (clean viewing otherwise).
-    document.addEventListener('mousemove',function(){showControls();hideTap();});
-    document.addEventListener('touchstart',function(){showControls();hideTap();},{passive:true});
+     document.addEventListener('keydown',function(e){showControls();hideTap();
+      if(mode==='direct'){
+        if(e.key===' '){e.preventDefault();if(nv.paused)nv.play().catch(function(){});else nv.pause();}
+        else if(e.key==='m'||e.key==='M'){nv.muted=!nv.muted;}
+        else if(e.key==='ArrowLeft'){e.preventDefault();nv.currentTime=Math.max(0,(nv.currentTime||0)-10);}
+        else if(e.key==='ArrowRight'){e.preventDefault();nv.currentTime=(nv.currentTime||0)+10;}
+        else if(e.key==='ArrowUp'){e.preventDefault();nv.volume=Math.min(1,(nv.volume||0)+0.1);}
+        else if(e.key==='ArrowDown'){e.preventDefault();nv.volume=Math.max(0,(nv.volume||0)-0.1);}
+      }
+    });
+     // Reveal controls on any pointer movement (clean viewing otherwise).
+     document.addEventListener('mousemove',function(){showControls();hideTap();});
+     document.addEventListener('touchstart',function(){showControls();hideTap();},{passive:true});
 
-   buildButtons();
-   if(!providers.length){setStatus('No video sources configured.',true);showLoading(false);}
-   else if(forceDemo){setStatus('Demo Mode',true);load();}
-   else {load();setTimeout(showHint,900);}
+    if(!providers.length){setStatus('No video sources configured.',true);showLoading(false);}
+    else {load();}
    window.addEventListener('blur',function(){
      if(loaded||(mode==='direct'&&nv&&!nv.paused)){
        setTimeout(function(){try{window.focus();}catch(e){}},350);
